@@ -1,5 +1,6 @@
-# robots.txt – Entdecker Weine · www.entdeckerweine.de
+# robots.txt – Entdeckerweine · www.entdeckerweine.de
 # Weinhandel Martin Volmer e.K., Marktstraße 6, 45964 Gladbeck
+# Letztes Deploy-Update: 2026-06-24
 
 User-agent: *
 Allow: /
