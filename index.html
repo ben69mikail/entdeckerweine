@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EntdeckerWeine Gladbeck – Weinhandel, Weinbar & Veranstaltungen</title>
+  <meta name="description" content="EntdeckerWeine in Gladbeck – Ihr Weinhandel im Ruhrgebiet. Weine kaufen, Weinbar besuchen, Weinproben & Events erleben. Marktstraße 6, 45964 Gladbeck.">
+  <meta name="keywords" content="Wein kaufen Gladbeck, Weinhandel Gladbeck, Weinbar Gladbeck, Weinprobe Ruhrgebiet, Rotwein, Weißwein, Champagner, Feinkost, Spirituosen, Whisky, Veranstaltungen Gladbeck">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.entdeckerweine.de/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/jpeg" sizes="32x32" href="https://entdeckerweine.de/wp-content/uploads/2022/08/cropped-favicon_entdeckerweine-32x32.jpg">
+  <link rel="icon" type="image/jpeg" sizes="192x192" href="https://entdeckerweine.de/wp-content/uploads/2022/08/cropped-favicon_entdeckerweine-192x192.jpg">
+  <link rel="apple-touch-icon" href="https://entdeckerweine.de/wp-content/uploads/2022/08/cropped-favicon_entdeckerweine-180x180.jpg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EntdeckerWeine Gladbeck – Weinhandel, Weinbar & Events">
+  <meta property="og:description" content="Weine kaufen, Weinbar besuchen und Events erleben in Gladbeck. Ihr Weinentdecker im Herzen des Ruhrgebiets.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.entdeckerweine.de/">
+  <meta property="og:image" content="https://entdeckerweine.de/wp-content/uploads/2022/08/headerbild_mobil-1.jpg">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Winery", "FoodEstablishment"],
+    "@id": "https://www.entdeckerweine.de/#business",
+    "name": "EntdeckerWeine – Weinhandel Martin Volmer e.K.",
+    "description": "Weinhandel, Weinbar und Veranstaltungsort in Gladbeck. Weine kaufen, Weinproben erleben und besondere Events feiern.",
+    "url": "https://www.entdeckerweine.de/",
+    "telephone": "+4920439577636",
+    "email": "info@entdeckerweine.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Marktstraße 6",
+      "addressLocality": "Gladbeck",
+      "postalCode": "45964",
+      "addressRegion": "Nordrhein-Westfalen",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.5712,
+      "longitude": 6.9856
+    },
+    "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "23:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "10:00", "closes": "15:00"}
+      ],
+  
+    "priceRange": "€€",
+    "servesCuisine": "Wein, Feinkost, Snacks",
+    "hasMap": "https://maps.google.com/?q=Marktstra%C3%9Fe+6,+45964+Gladbeck",
+    "sameAs": [
+      "https://www.facebook.com/entdeckerweine"
+    ],
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.5712,
+        "longitude": 6.9856
+      },
+      "geoRadius": "30000"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== HERO SLIDESHOW ===== */
+    .hero-slideshow {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      will-change: opacity, transform;
+    }
+    .hero-slide.active {
+      opacity: 1;
+    }
+    @keyframes kenBurns1 {
+      0%   { transform: scale(1.0)  translate(0,    0); }
+      100% { transform: scale(1.12) translate(-1%,  0.5%); }
+    }
+    @keyframes kenBurns2 {
+      0%   { transform: scale(1.08) translate(1%,   0); }
+      100% { transform: scale(1.18) translate(-0.5%,-0.5%); }
+    }
+    @keyframes kenBurns3 {
+      0%   { transform: scale(1.05) translate(-0.5%, 0.5%); }
+      100% { transform: scale(1.15) translate(0.5%, -1%); }
+    }
+    @keyframes kenBurns4 {
+      0%   { transform: scale(1.0)  translate(0.5%, -0.5%); }
+      100% { transform: scale(1.12) translate(-1%,   0.5%); }
+    }
+    .hero-slide.active:nth-child(1) { animation: kenBurns1 7s ease-in-out forwards; }
+    .hero-slide.active:nth-child(2) { animation: kenBurns2 7s ease-in-out forwards; }
+    .hero-slide.active:nth-child(3) { animation: kenBurns3 7s ease-in-out forwards; }
+    .hero-slide.active:nth-child(4) { animation: kenBurns4 7s ease-in-out forwards; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide { animation: none !important; transition: none; }
+    }
+    /* ===== INFO STRIP AFTER HERO ===== */
+    .info-strip-hero {
+      background: rgba(10,10,10,0.92);
+      border-top: 1px solid rgba(196,160,88,0.3);
+      border-bottom: 1px solid rgba(196,160,88,0.15);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0;
+    }
+    .info-strip-hero .info-strip-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: 1.2rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      flex: 1;
+      min-width: 200px;
+      justify-content: center;
+    }
+    .info-strip-hero .info-strip-item:last-child { border-right: none; }
+    .info-strip-hero .info-strip-icon { font-size: 1.4rem; }
+    .info-strip-hero .info-strip-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); margin-bottom: .15rem; font-family: var(--font-sans); }
+    .info-strip-hero .info-strip-value { font-size: .9rem; color: var(--warm-white); }
+    .info-strip-hero .info-strip-value a { color: var(--warm-white); text-decoration: none; }
+    .info-strip-hero .info-strip-value a:hover { color: var(--gold-light); }
+    @media (max-width: 600px) {
+      .info-strip-hero .info-strip-item { padding: 1rem 1.2rem; min-width: 160px; }
+    }
+
+    /* ===== VIDEO HERO ===== */
+    .wineglass-hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    /* Fullscreen background video */
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      opacity: 0.9;
+    }
+    /* Dark overlay so text is readable */
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.35) 0%,
+        rgba(0,0,0,0.15) 40%,
+        rgba(0,0,0,0.55) 100%
+      );
+      z-index: 1;
+    }
+    /* Particle dust background */
+    .wineglass-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(196,160,88,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 15%, rgba(196,160,88,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 70%, rgba(196,160,88,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 60%, rgba(196,160,88,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 80%, rgba(196,160,88,0.2) 0%, transparent 100%),
+        radial-gradient(2px 2px at 60% 30%, rgba(196,160,88,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 85%, rgba(196,160,88,0.25) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    /* Hero text fade-in */
+    .wineglass-text {
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .wineglass-eyebrow {
+      font-family: var(--font-sans);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--gold);
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out 0.4s forwards;
+      display: block;
+      margin-bottom: .75rem;
+    }
+    .wineglass-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: var(--warm-white);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out 0.6s forwards;
+    }
+    .wineglass-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .wineglass-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(.9rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out 0.8s forwards;
+    }
+    .wineglass-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out 1.0s forwards;
+    }
+    @keyframes fadeSlideUp {
+      0%   { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    /* Scroll hint */
+    .wineglass-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: rgba(196,160,88,0.6);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out 1.3s forwards;
+    }
+    .wineglass-scroll svg {
+      width: 20px;
+      height: 20px;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wineglass-eyebrow, .wineglass-title, .wineglass-subtitle, .wineglass-actions, .wineglass-scroll { animation: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body class="page-index">
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 Marktstraße 6, 45964 Gladbeck</span>
+    <span>📞 <a href="tel:+4920439577636">0 20 43 / 95 77 636</a></span>
+    <span>✉ <a href="mailto:info@entdeckerweine.de">info@entdeckerweine.de</a></span>
+    <span class="hours-badge">Mi–Fr 11–23 · Sa 10–15</span>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="site-nav" id="siteNav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="https://entdeckerweine.de/wp-content/uploads/2022/08/logo_white.webp"
+           alt="EntdeckerWeine – Weinhandel Martin Volmer e.K. Gladbeck"
+           width="160" height="82" loading="eager" class="nav-logo-img">
+    </a>
+    <div class="nav-social-mobile">
+      <a href="tel:+4920439577636" aria-label="Telefon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.986.836l.512 3.073a1 1 0 01-.27.934L7.1 9.25a15.014 15.014 0 006.65 6.65l1.407-1.408a1 1 0 01.934-.27l3.073.512A1 1 0 0120 15.72V18a2 2 0 01-2 2A15 15 0 013 5z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active" aria-current="page">Start</a></li>
+      <li class="has-dropdown">
+        <a href="wein-kaufen.html">Weine</a>
+        <ul class="dropdown">
+          <li><a href="wein-kaufen.html">Alle Weine</a></li>
+          <li><a href="rotwein.html">Rotwein</a></li>
+          <li><a href="weisswein.html">Weißwein</a></li>
+          <li><a href="rose.html">Rosé</a></li>
+          <li><a href="champagner.html">Champagner &amp; Sekt</a></li>
+          <li><a href="spirituosen.html">Whisky &amp; Spirituosen</a></li>
+          <li><a href="feinkost.html">Feinkost</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="weinbar.html">Weinbar</a>
+        <ul class="dropdown">
+          <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="speisekarte.html#getraenke">Getränkekarte</a></li>
+        </ul>
+      </li>
+      <li><a href="weinprobe.html">Weinproben</a></li>
+      <li><a href="veranstaltungen.html">Events</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="https://shop.entdeckerweine.de" target="_blank" rel="noopener">Shop</a></li>
+      <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <a href="index.html" class="mobile-nav-logo"><img src="https://entdeckerweine.de/wp-content/uploads/2022/08/logo_white.webp" alt="EntdeckerWeine" height="50" loading="eager"></a>
+    <button class="mobile-nav-close" id="mobileClose" aria-label="Menü schließen">✕</button>
+  </div>
+  <div class="mobile-nav-body">
+    <a href="index.html" class="active">Start</a>
+    <a href="wein-kaufen.html" class="nav-shop-highlight">Weine kaufen</a>
+    <a href="rotwein.html" class="mobile-nav-sub">Rotwein</a>
+    <a href="weisswein.html" class="mobile-nav-sub">Weißwein</a>
+    <a href="rose.html" class="mobile-nav-sub">Rosé</a>
+    <a href="champagner.html" class="mobile-nav-sub">Champagner &amp; Sekt</a>
+    <a href="spirituosen.html" class="mobile-nav-sub">Whisky &amp; Spirituosen</a>
+    <a href="feinkost.html" class="mobile-nav-sub">Feinkost</a>
+    <a href="weinbar.html" class="nav-bar-toggle">Weinbar</a>
+    <a href="speisekarte.html" class="mobile-bar-sub">↳ Speisekarte</a>
+    <a href="speisekarte.html#getraenke" class="mobile-bar-sub">↳ Getränkekarte</a>
+    <a href="weinprobe.html">Weinproben</a>
+    <a href="veranstaltungen.html">Events</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="https://shop.entdeckerweine.de" target="_blank" rel="noopener">Shop</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+</div>
+
+<!-- ===== HERO: VIDEO BACKGROUND ===== -->
+<section class="wineglass-hero" id="home">
+
+  <!-- Real background video -->
+  <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Dark gradient overlay for text readability -->
+  <div class="hero-video-overlay"></div>
+
+  <!-- Text content -->
+  <div class="wineglass-text" style="position:relative;z-index:2;">
+    <span class="wineglass-eyebrow">Gladbeck · Ruhrgebiet · seit 2008</span>
+    <h1 class="wineglass-title">Für <em>Wein&shy;entdecker</em><br>im Ruhrgebiet</h1>
+    <p class="wineglass-subtitle">Weinhandel, Weinbar und Veranstaltungsort in einem. Erleben Sie eine Welt voller besonderer Weine, herzlicher Gastlichkeit und unvergesslicher Momente.</p>
+    <div class="wineglass-actions">
+      <a href="wein-kaufen.html" class="btn btn-gold btn-lg">Weine entdecken</a>
+      <a href="weinbar.html" class="btn btn-outline btn-lg">Zur Weinbar</a>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="wineglass-scroll" style="position:relative;z-index:2;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <span>Mehr erfahren</span>
+  </div>
+
+</section>
+
+<!-- ===== INFO STRIP (direkt nach Hero) ===== -->
+<div class="info-strip-hero">
+  <div class="info-strip-item">
+    <span class="info-strip-icon">🕐</span>
+    <div>
+      <div class="info-strip-label">Öffnungszeiten</div>
+      <div class="info-strip-value">Mi–Fr 11–23 · Sa 10–15 Uhr</div>
+    </div>
+  </div>
+  <div class="info-strip-item">
+    <span class="info-strip-icon">📍</span>
+    <div>
+      <div class="info-strip-label">Adresse</div>
+      <div class="info-strip-value">Marktstraße 6, 45964 Gladbeck</div>
+    </div>
+  </div>
+  <div class="info-strip-item">
+    <span class="info-strip-icon">📞</span>
+    <div>
+      <div class="info-strip-label">Telefon</div>
+      <div class="info-strip-value"><a href="tel:+4920439577636">0 20 43 / 95 77 636</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== THREE PILLARS ===== -->
+<div class="features-grid">
+  <div class="feature-block">
+    <div class="feature-block-bg" style="background-image: url('https://entdeckerweine.de/wp-content/uploads/2022/08/ladenlokal_slide_4.jpg');"></div>
+    <div class="feature-block-overlay"></div>
+    <div class="feature-block-content">
+      <span class="feature-block-icon">🍾</span>
+      <h2 class="feature-block-title">Weinhandel</h2>
+      <p class="feature-block-text">Rotwein, Weißwein, Rosé, Champagner, Whisky und Feinkost. Handverlesene Raritäten und Alltagsweine für jeden Anlass.</p>
+      <a href="wein-kaufen.html" class="feature-block-link">Zum Sortiment →</a>
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-block-bg" style="background-image: url('https://entdeckerweine.de/wp-content/uploads/2022/08/ladenlokal_slide_6.jpg'), url('https://entdeckerweine.de/wp-content/uploads/2022/08/entdeckerweine_lokal_innenraum.jpg');"></div>
+    <div class="feature-block-overlay"></div>
+    <div class="feature-block-content">
+      <span class="feature-block-icon">🕯️</span>
+      <h2 class="feature-block-title">Weinbar</h2>
+      <p class="feature-block-text">Genießen Sie Wein im Glas bei uns vor Ort. Stimmungsvolles Ambiente, ausgewählte Snacks und die beste Gesellschaft.</p>
+      <a href="weinbar.html" class="feature-block-link">Zur Weinbar →</a>
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-block-bg" style="background-image: url('Events und Probe.jpg');"></div>
+    <div class="feature-block-overlay"></div>
+    <div class="feature-block-content">
+      <span class="feature-block-icon">🎶</span>
+      <h2 class="feature-block-title">Events &amp; Proben</h2>
+      <p class="feature-block-text">Weinproben, Open Air Events, Lesungen und Konzerte. Unvergessliche Abende in einzigartiger Atmosphäre.</p>
+      <a href="veranstaltungen.html" class="feature-block-link">Alle Events →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== INTRO / ÜBER UNS TEASER ===== -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="two-col">
+      <div class="two-col-img reveal">
+        <img src="Entdeckerweine Startseite.jpeg" alt="EntdeckerWeine Gladbeck – Weinhandel und Weinbar" loading="lazy">
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="section-eyebrow">Unsere Geschichte</span>
+        <h2 class="section-title">Ein <em>Ort für Liebhaber</em><br>des guten Weins</h2>
+        <div class="section-divider"></div>
+        <p class="section-lead">Im Herzen von Gladbeck haben wir einen Ort geschaffen, an dem Weinkultur gelebt wird. Unser Weinhandel bietet handverlesene Weine aus aller Welt – vom leichten Alltagswein bis zur außergewöhnlichen Rarität.</p>
+        <br>
+        <p style="font-size:0.92rem; color:var(--text-light); line-height:1.8;">Als Weinhandel, Weinbar und Veranstaltungsort in einem sind wir mehr als ein Geschäft. Wir sind ein Treffpunkt für alle, die Wein nicht nur trinken, sondern wirklich entdecken möchten. Ob beim gemütlichen Glas an der Bar, bei einer geführten Weinprobe oder bei einem unserer besonderen Events.</p>
+        <br>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
+          <a href="ueber-uns.html" class="btn btn-outline">Mehr über uns</a>
+          <a href="kontakt.html" class="btn btn-crimson">Kontakt aufnehmen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEINBAR TEASER ===== -->
+<section style="background: var(--crimson-dark); padding: 0; overflow:hidden;">
+  <div class="weinbar-teaser-grid">
+    <div style="position:relative; overflow:hidden;">
+      <img src="https://entdeckerweine.de/wp-content/uploads/2022/08/entdeckerweine_Terrasse_sommer.jpg"
+           alt="Weinbar EntdeckerWeine – Terrasse und Sommerstimmung in Gladbeck"
+           loading="lazy"
+           style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.6s ease;">
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg,transparent 50%,var(--near-black) 100%);"></div>
+    </div>
+    <div style="display:flex; align-items:center; padding:4rem; background:var(--crimson-dark);">
+      <div class="reveal">
+        <span class="section-eyebrow" style="color:var(--gold-light);">Neu entdecken</span>
+        <h2 class="section-title" style="color:var(--warm-white);">Unsere <em>Weinbar</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-lead" style="margin-bottom:2rem; color:rgba(245,237,216,0.88);">Setzen Sie sich, genießen Sie ein Glas Wein und lassen Sie sich von unserer Leidenschaft anstecken. Die Weinbar ist Ihr Wohnzimmer im Weinhandel.</p>
+        <ul style="list-style:none; margin-bottom:2rem; display:flex; flex-direction:column; gap:0.7rem;">
+          <li style="display:flex; gap:0.8rem; align-items:center; font-size:0.9rem; color:rgba(245,237,216,0.88);">
+            <span style="color:var(--gold-light); font-size:1.1rem;">✓</span> Wein im Glas oder als Flasche
+          </li>
+          <li style="display:flex; gap:0.8rem; align-items:center; font-size:0.9rem; color:rgba(245,237,216,0.88);">
+            <span style="color:var(--gold-light); font-size:1.1rem;">✓</span> Käse, Charcuterie & ausgewählte Snacks
+          </li>
+          <li style="display:flex; gap:0.8rem; align-items:center; font-size:0.9rem; color:rgba(245,237,216,0.88);">
+            <span style="color:var(--gold-light); font-size:1.1rem;">✓</span> Wechselnde Weine der Woche
+          </li>
+          <li style="display:flex; gap:0.8rem; align-items:center; font-size:0.9rem; color:rgba(245,237,216,0.88);">
+            <span style="color:var(--gold-light); font-size:1.1rem;">✓</span> Reservierung für Gruppen möglich
+          </li>
+        </ul>
+        <a href="weinbar.html" class="btn btn-gold">Zur Weinbar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEINPROBE SECTION ===== -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="text-center reveal" style="margin-bottom:3rem;">
+      <span class="section-eyebrow">Entdecken & Verkosten</span>
+      <h2 class="section-title">Weinproben in <em>Gladbeck</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">Lernen Sie Wein auf eine neue Art kennen. Unsere Weinproben richten sich an Neugierige und Kenner gleichermaßen – geführt, informativ und vor allem: genussvoll.</p>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="card reveal reveal-delay-1">
+        <div class="card-img-placeholder">🍷</div>
+        <div class="card-body">
+          <div class="card-eyebrow">Klassiker</div>
+          <h3 class="card-title">Weinprobe für Einsteiger</h3>
+          <p class="card-text">Der perfekte Einstieg in die Welt des Weins. Lernen Sie 6 ausgewählte Weine kennen und riechen, sehen und schmecken Sie den Unterschied.</p>
+          <a href="weinprobe.html" class="btn btn-outline" style="font-size:0.78rem; padding:0.6rem 1.2rem;">Mehr erfahren</a>
+        </div>
+      </div>
+
+      <div class="card reveal reveal-delay-2">
+        <div class="card-img-placeholder" style="background: linear-gradient(135deg, #1a0a0d 0%, #3d1520 100%);">🥂</div>
+        <div class="card-body">
+          <div class="card-eyebrow">Premium</div>
+          <h3 class="card-title">Champagner & Schaumweine</h3>
+          <p class="card-text">Eine Reise durch die prickelnde Welt der Schaumweine: Champagner, Crémant, Prosecco und Cava im direkten Vergleich.</p>
+          <a href="weinprobe.html" class="btn btn-outline" style="font-size:0.78rem; padding:0.6rem 1.2rem;">Mehr erfahren</a>
+        </div>
+      </div>
+
+      <div class="card reveal reveal-delay-3">
+        <div class="card-img-placeholder" style="background: linear-gradient(135deg, #0d1020 0%, #1a2540 100%);">🌍</div>
+        <div class="card-body">
+          <div class="card-eyebrow">Themenabend</div>
+          <h3 class="card-title">Große Weine</h3>
+          <p class="card-text">Entdecken Sie, warum manche Weine einen großen Namen tragen und wie viel Genuss sie wirklich bieten. Sind die großen Bordeaux, Burgunder, Champagner oder Barolos ihren Preis wert?</p>
+          <a href="weinprobe.html" class="btn btn-outline" style="font-size:0.78rem; padding:0.6rem 1.2rem;">Mehr erfahren</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:2.5rem;">
+      <a href="weinprobe.html" class="btn btn-gold">Alle Weinproben ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<div class="quote-section">
+  <blockquote>
+    <p class="quote-text">„Hör auf Dein Herz. Außer der Wirt sagt: Nimm den Riesling! Dann hör auf den Wirt.“</p>
+    <cite class="quote-author">— Quelle unbekannt (hätte aber von Martin Volmer stammen können)</cite>
+  </blockquote>
+</div>
+
+<!-- ===== UPCOMING EVENTS ===== -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem;">
+      <div class="reveal">
+        <span class="section-eyebrow">Demnächst bei uns</span>
+        <h2 class="section-title">Kommende <em>Events</em></h2>
+      </div>
+      <a href="veranstaltungen.html" class="btn btn-outline reveal" style="white-space:nowrap;">Alle Veranstaltungen</a>
+    </div>
+
+    <div class="events-list">
+      <div class="event-item reveal">
+        <div class="event-date">
+          <span class="event-date-day">14</span>
+          <span class="event-date-month">Jun</span>
+        </div>
+        <div>
+          <div class="event-info-tag">Weinprobe</div>
+          <div class="event-info-title">Große Rotwein-Verkostung – Bordeaux trifft Burgund</div>
+          <div class="event-info-detail">Ab 19:00 Uhr · EntdeckerWeine, Gladbeck · 25 €/Person</div>
+        </div>
+        <a href="veranstaltungen.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
+      </div>
+
+      <div class="event-item reveal reveal-delay-1">
+        <div class="event-date">
+          <span class="event-date-day">21</span>
+          <span class="event-date-month">Jun</span>
+        </div>
+        <div>
+          <div class="event-info-tag">Open Air</div>
+          <div class="event-info-title">Sommerliche Open Air Weinbar – Wein unter dem Sternenhimmel</div>
+          <div class="event-info-detail">Ab 17:00 Uhr · Vor dem Laden, Marktstraße 6 · Eintritt frei</div>
+        </div>
+        <a href="veranstaltungen.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
+      </div>
+
+      <div class="event-item reveal reveal-delay-2">
+        <div class="event-date">
+          <span class="event-date-day">05</span>
+          <span class="event-date-month">Jul</span>
+        </div>
+        <div>
+          <div class="event-info-tag">Lesung & Wein</div>
+          <div class="event-info-title">Literatur & Wein – ein Abend mit Worten und Gläsern</div>
+          <div class="event-info-detail">Ab 19:30 Uhr · EntdeckerWeine, Gladbeck · 20 €/Person inkl. Glas Wein</div>
+        </div>
+        <a href="veranstaltungen.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEIN-KATEGORIEN ===== -->
+<section>
+  <div class="section-inner">
+    <div class="text-center reveal" style="margin-bottom:3rem;">
+      <span class="section-eyebrow">Unser Sortiment</span>
+      <h2 class="section-title">Was wir <em>führen</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:1rem;" class="reveal">
+      <a href="weisswein.html" style="text-decoration:none;" class="reveal reveal-delay-1">
+        <div class="wein-cat-card">
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🥂</div>
+          <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--warm-white); margin-bottom:0.4rem;">Weißwein</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">Entdecken</div>
+        </div>
+      </a>
+      <a href="rose.html" style="text-decoration:none;" class="reveal reveal-delay-2">
+        <div class="wein-cat-card">
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🌹</div>
+          <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--warm-white); margin-bottom:0.4rem;">Rosé</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">Entdecken</div>
+        </div>
+      </a>
+      <a href="champagner.html" style="text-decoration:none;" class="reveal reveal-delay-3">
+        <div class="wein-cat-card">
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🍾</div>
+          <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--warm-white); margin-bottom:0.4rem;">Champagner</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">Entdecken</div>
+        </div>
+      </a>
+      <a href="rotwein.html" style="text-decoration:none;" class="reveal reveal-delay-1">
+        <div class="wein-cat-card">
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🍷</div>
+          <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--warm-white); margin-bottom:0.4rem;">Rotwein</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">Entdecken</div>
+        </div>
+      </a>
+      <a href="spirituosen.html" style="text-decoration:none;" class="reveal reveal-delay-2">
+        <div class="wein-cat-card">
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🥃</div>
+          <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--warm-white); margin-bottom:0.4rem;">Spirituosen</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">Entdecken</div>
+        </div>
+      </a>
+      <a href="feinkost.html" style="text-decoration:none;" class="reveal reveal-delay-3">
+        <div class="wein-cat-card">
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🧀</div>
+          <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--warm-white); margin-bottom:0.4rem;">Feinkost</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">Entdecken</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BESUCHEN SIE UNS / ANFAHRT ===== -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="two-col reveal">
+      <div>
+        <span class="section-eyebrow">Anfahrt & Öffnungszeiten</span>
+        <h2 class="section-title">Besuchen Sie uns</h2>
+        <div class="section-divider"></div>
+        <p style="font-size:.95rem;color:var(--text-light);line-height:1.8;margin-bottom:1.5rem">
+          Wir liegen zentral in der Gladbecker Innenstadt, nur wenige Gehminuten von den Bahnhöfen und vom Busbahnhof entfernt. Parkmöglichkeiten sind direkt am Geschäft vorhanden.
+        </p>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.6rem">
+          <li style="display:flex;gap:.8rem;align-items:flex-start;font-size:.9rem;color:var(--text-light)"><span style="color:var(--gold-light);flex-shrink:0">📍</span> Marktstraße 6 · 45964 Gladbeck</li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start;font-size:.9rem;color:var(--text-light)"><span style="color:var(--gold-light);flex-shrink:0">🕐</span> Mi–Fr 11–23 Uhr · Sa 10–15 Uhr</li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start;font-size:.9rem;color:var(--text-light)"><span style="color:var(--gold-light);flex-shrink:0">🚗</span> A2 Abfahrt Essen Gladbeck, Richtung Innenstadt</li>
+          <li style="display:flex;gap:.8rem;align-items:flex-start;font-size:.9rem;color:var(--text-light)"><span style="color:var(--gold-light);flex-shrink:0">🚂</span> Gladbeck-West (RE 14) – 5 Min. Fußweg</li>
+        </ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="kontakt.html" class="btn btn-gold">Kontakt &amp; Anfahrt</a>
+          <a href="https://maps.google.com/?q=Marktstra%C3%9Fe+6,+45964+Gladbeck" target="_blank" rel="noopener" class="btn btn-outline">In Google Maps öffnen ↗</a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center" class="reveal reveal-delay-1">
+        <div style="background:rgba(10,4,6,0.55);border:1px solid rgba(196,150,60,0.35);border-radius:6px;padding:2.5rem;width:100%;max-width:340px">
+          <p class="section-eyebrow" style="margin-bottom:1rem">Öffnungszeiten</p>
+          <table style="width:100%;border-collapse:collapse;font-family:var(--font-body)">
+            <tr style="border-bottom:1px solid rgba(196,150,60,0.2)"><td style="padding:.6rem 0;color:var(--warm-white);font-size:.9rem;opacity:.7">Mo–Di</td><td style="text-align:right;color:var(--warm-white);font-size:.9rem;opacity:.7">Geschlossen</td></tr>
+            <tr style="border-bottom:1px solid rgba(196,150,60,0.2)"><td style="padding:.6rem 0;color:var(--gold-light);font-weight:600;font-size:.9rem">Mi–Fr</td><td style="text-align:right;color:var(--warm-white);font-size:.9rem">11:00 – 23:00 Uhr</td></tr>
+            <tr style="border-bottom:1px solid rgba(196,150,60,0.2)"><td style="padding:.6rem 0;color:var(--gold-light);font-weight:600;font-size:.9rem">Samstag</td><td style="text-align:right;color:var(--warm-white);font-size:.9rem">10:00 – 15:00 Uhr</td></tr>
+            <tr><td style="padding:.6rem 0;color:var(--warm-white);font-size:.9rem;opacity:.7">Sonntag</td><td style="text-align:right;color:var(--warm-white);font-size:.9rem;opacity:.7">Geschlossen</td></tr>
+          </table>
+          <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(196,150,60,0.15)">
+            <a href="tel:+4920439577636" style="display:flex;align-items:center;gap:.6rem;color:var(--gold-light);text-decoration:none;font-family:var(--font-body);font-size:.9rem">📞 0 20 43 / 95 77 636</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<div class="newsletter-section reveal">
+  <span class="section-eyebrow">Immer auf dem Laufenden</span>
+  <h3 style="font-family:var(--font-display); font-size:2rem; color:var(--warm-white); margin-bottom:0.8rem;">Newsletter abonnieren</h3>
+  <p style="color:rgba(245,237,216,0.85); font-size:0.95rem; max-width:500px; margin:0 auto;">Erfahren Sie als Erste*r von neuen Weinen, Weinproben und Events in Gladbeck.</p>
+  <form class="newsletter-form" onsubmit="return false;" aria-label="Newsletter-Anmeldung">
+    <input type="email" class="newsletter-input" placeholder="Ihre E-Mail-Adresse" required aria-label="E-Mail-Adresse">
+    <button type="submit" class="btn btn-gold">Anmelden</button>
+  </form>
+</div>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-logo">Entdeckerweine</div>
+      <p>Weinhandel Martin Volmer e.K.<br>Marktstraße 6 · 45964 Gladbeck</p>
+      <p>📞 <a href="tel:+4920439577636">0 20 43 / 95 77 636</a><br>
+      ✉ <a href="mailto:info@entdeckerweine.de">info@entdeckerweine.de</a></p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Weine</h4>
+      <ul>
+        <li><a href="rotwein.html">Rotwein</a></li>
+        <li><a href="weisswein.html">Weißwein</a></li>
+        <li><a href="rose.html">Rosé</a></li>
+        <li><a href="champagner.html">Champagner & Sekt</a></li>
+        <li><a href="spirituosen.html">Whisky & Spirituosen</a></li>
+        <li><a href="feinkost.html">Feinkost</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Erlebnisse</h4>
+      <ul>
+        <li><a href="weinbar.html">Weinbar & Gastronomie</a></li>
+        <li><a href="weinprobe.html">Weinproben</a></li>
+        <li><a href="veranstaltungen.html">Events & Veranstaltungen</a></li>
+      </ul>
+      <h4 style="margin-top:1.5rem">Öffnungszeiten</h4>
+      <p style="font-size:.9rem;color:var(--warm-white);opacity:.8">Mo–Di: Geschlossen<br>Mi–Fr: 11–23 Uhr<br>Sa: 10–15 Uhr</p>
+    </div>
+    <div class="footer-col">
+      <h4>Über uns</h4>
+      <ul>
+        <li><a href="ueber-uns.html">Unser Team</a></li>
+        <li><a href="kontakt.html">Kontakt & Anfahrt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Weinhandel Martin Volmer e.K. · Entdeckerweine · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+  </div>
+</footer>
+
+  <script>
+    document.querySelector('.page-hero')?.classList.add('loaded');
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileClose = document.getElementById('mobileClose');
+    function openNav() { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); hamburger.classList.add('is-active'); document.body.style.overflow='hidden'; }
+    function closeNav() { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); hamburger.classList.remove('is-active'); document.body.style.overflow=''; }
+    hamburger?.addEventListener('click', openNav);
+    mobileClose?.addEventListener('click', closeNav);
+    mobileNav?.addEventListener('click', e => { if(e.target.tagName==='A' && !e.target.classList.contains('nav-shop-highlight')) closeNav(); });
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeNav(); });
+
+    /* Accordion: collapse mobile sub-links, toggle on tap (Weine + Weinbar) */
+    function setupMobileAccordion(toggleSel, subSel) {
+      const toggle = mobileNav?.querySelector(toggleSel);
+      const subs = mobileNav?.querySelectorAll(subSel);
+      if (!toggle || !subs?.length) return;
+      subs.forEach(a => { a.style.display = 'none'; });
+      toggle.insertAdjacentHTML('beforeend', '<span class="acc-toggle-arrow" style="float:right;transition:transform 0.25s">▾</span>');
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const open = this.classList.toggle('acc-open');
+        subs.forEach(a => { a.style.display = open ? '' : 'none'; });
+        const arrow = this.querySelector('.acc-toggle-arrow');
+        if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+      });
+    }
+    setupMobileAccordion('.nav-shop-highlight', '.mobile-nav-sub');
+    setupMobileAccordion('.nav-bar-toggle', '.mobile-bar-sub');
+    const siteNav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => { siteNav?.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); } });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.classList.add('in-view');
+      } else {
+        observer.observe(el);
+      }
+    });
+  </script>
+  <script src="weine-data.js"></script>
+  <script src="wine-showcase.js"></script>
+</body>
+</html>

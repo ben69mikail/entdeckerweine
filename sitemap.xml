@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Startseite -->
+  <url>
+    <loc>https://www.entdeckerweine.de/</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Wein kaufen – Übersicht -->
+  <url>
+    <loc>https://www.entdeckerweine.de/wein-kaufen.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Rotwein -->
+  <url>
+    <loc>https://www.entdeckerweine.de/rotwein.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Weißwein -->
+  <url>
+    <loc>https://www.entdeckerweine.de/weisswein.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Rosé -->
+  <url>
+    <loc>https://www.entdeckerweine.de/rose.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Champagner & Sekt -->
+  <url>
+    <loc>https://www.entdeckerweine.de/champagner.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Whisky & Spirituosen -->
+  <url>
+    <loc>https://www.entdeckerweine.de/spirituosen.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Feinkost -->
+  <url>
+    <loc>https://www.entdeckerweine.de/feinkost.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Weinbar -->
+  <url>
+    <loc>https://www.entdeckerweine.de/weinbar.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Speise- & Getränkekarte -->
+  <url>
+    <loc>https://www.entdeckerweine.de/speisekarte.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Weinproben & Tastings -->
+  <url>
+    <loc>https://www.entdeckerweine.de/weinprobe.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Events & Veranstaltungen -->
+  <url>
+    <loc>https://www.entdeckerweine.de/veranstaltungen.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Über uns -->
+  <url>
+    <loc>https://www.entdeckerweine.de/ueber-uns.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Kontakt -->
+  <url>
+    <loc>https://www.entdeckerweine.de/kontakt.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Impressum (noindex, but included for completeness) -->
+  <url>
+    <loc>https://www.entdeckerweine.de/impressum.html</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+</urlset>

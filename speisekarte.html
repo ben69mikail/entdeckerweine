@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speisekarte &amp; Getränkekarte – Weinbar EntdeckerWeine Gladbeck</title>
+  <meta name="description" content="Speise- und Getränkekarte der Weinbar EntdeckerWeine in Gladbeck: Brotzeit, Käse, Charcuterie, offene Weine, Spritz, Kaffee &amp; mehr. Stand 07/2026. Marktstraße 6.">
+  <meta name="keywords" content="Speisekarte Gladbeck, Getränkekarte Weinbar, Weinbar Speisen Gladbeck, Brotzeit Gladbeck, Wein im Glas Gladbeck, Weinbar Karte Ruhrgebiet">
+  <link rel="canonical" href="https://www.entdeckerweine.de/speisekarte.html">
+  <link rel="icon" type="image/jpeg" sizes="32x32" href="https://entdeckerweine.de/wp-content/uploads/2022/08/cropped-favicon_entdeckerweine-32x32.jpg">
+  <link rel="icon" type="image/jpeg" sizes="192x192" href="https://entdeckerweine.de/wp-content/uploads/2022/08/cropped-favicon_entdeckerweine-192x192.jpg">
+  <link rel="apple-touch-icon" href="https://entdeckerweine.de/wp-content/uploads/2022/08/cropped-favicon_entdeckerweine-180x180.jpg">
+  <meta property="og:title" content="Speisekarte &amp; Getränkekarte – Weinbar EntdeckerWeine Gladbeck">
+  <meta property="og:description" content="Brotzeit, Käse, Charcuterie, offene Weine, Spritz &amp; mehr in der Weinbar EntdeckerWeine.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Speise- und Getränkekarte – Weinbar EntdeckerWeine",
+    "inLanguage": "de",
+    "url": "https://www.entdeckerweine.de/speisekarte.html",
+    "provider": {
+      "@type": "BarOrPub",
+      "name": "EntdeckerWeine – Weinbar",
+      "telephone": "+4920439577636",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Marktstraße 6",
+        "addressLocality": "Gladbeck",
+        "postalCode": "45964",
+        "addressCountry": "DE"
+      }
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Helles Theme der Site: dunkle Schrift auf Creme — hoher Kontrast */
+    .menu-toggle{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin:0 auto 3.5rem;}
+    .menu-toggle button{font-family:var(--font-display,'Cormorant Garamond',serif);font-size:1.1rem;letter-spacing:.02em;color:#1A0A0E;background:transparent;border:1px solid var(--gold,#C4963C);padding:.7rem 1.8rem;border-radius:2px;cursor:pointer;transition:background .35s cubic-bezier(.22,1,.36,1),color .35s,border-color .35s;}
+    .menu-toggle button:hover{background:rgba(196,150,60,.14);}
+    .menu-toggle button[aria-selected="true"]{background:var(--crimson,#8B1A2A);color:#FFF;border-color:var(--crimson,#8B1A2A);font-weight:700;}
+    .menu-panel[hidden]{display:none;}
+    .menu-group{margin-bottom:3.25rem;background:#FFFFFF;border:1px solid #E7DCC9;border-radius:6px;padding:1.8rem 1.9rem 2rem;box-shadow:0 6px 24px rgba(74,48,32,.06);}
+    .menu-group:last-child{margin-bottom:0;}
+    .menu-group-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.6rem;}
+    .menu-group-head h3{font-family:var(--font-display,'Cormorant Garamond',serif);font-size:1.7rem;font-weight:700;color:var(--crimson,#8B1A2A);letter-spacing:.01em;white-space:nowrap;}
+    .menu-group-head .rule{flex:1;height:1px;background:#E0D3BD;}
+    .menu-group-note{font-size:.84rem;color:#6E5A45;font-style:italic;margin:-1rem 0 1.5rem;}
+    .menu-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.5rem 3rem;}
+    .menu-item{display:grid;grid-template-columns:1fr auto;column-gap:1rem;align-items:baseline;}
+    .menu-item-name{font-size:1.04rem;color:#1A0A0E;font-weight:700;letter-spacing:.005em;line-height:1.35;}
+    .menu-item-price{font-family:var(--font-display,'Cormorant Garamond',serif);font-size:1.18rem;font-weight:700;color:var(--crimson,#8B1A2A);white-space:nowrap;}
+    .menu-item-desc{grid-column:1 / -1;font-size:.9rem;color:#4A3020;line-height:1.6;margin-top:.25rem;}
+    .menu-item-desc .own{color:#8A6A1E;font-weight:600;font-style:italic;}
+    .menu-item-variants{grid-column:1 / -1;font-size:.88rem;color:#4A3020;margin-top:.4rem;display:flex;gap:1.3rem;flex-wrap:wrap;}
+    .menu-item-variants span b{color:var(--crimson,#8B1A2A);font-weight:700;}
+    .menu-legend{max-width:760px;margin:3rem auto 0;padding:1.4rem 1.7rem;background:#F6EFE2;border:1px solid #E0D3BD;border-radius:6px;text-align:center;}
+    .menu-legend p{font-size:.9rem;color:#3A2417;line-height:1.7;margin:0;}
+    .menu-legend p + p{margin-top:.6rem;}
+    .menu-legend .own{color:#7A5D15;font-weight:700;font-style:normal;}
+    .menu-legend .fine{color:#6E5A45;font-size:.8rem;font-style:italic;}
+    @media (max-width:600px){.menu-items{grid-template-columns:1fr;gap:1.3rem;}.menu-group-head h3{font-size:1.4rem;}.menu-group{padding:1.4rem 1.3rem 1.6rem;}}
+  </style>
+</head>
+<body>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 Marktstraße 6, 45964 Gladbeck</span>
+    <span>📞 <a href="tel:+4920439577636">0 20 43 / 95 77 636</a></span>
+    <span>✉ <a href="mailto:info@entdeckerweine.de">info@entdeckerweine.de</a></span>
+    <span class="hours-badge">Weinbar: Do &amp; Fr 17–23 · Sa 11–15</span>
+  </div>
+</div>
+
+
+  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://entdeckerweine.de/wp-content/uploads/2022/08/logo_white.webp"
+             alt="EntdeckerWeine – Weinhandel Martin Volmer e.K. Gladbeck"
+             width="160" height="82" loading="eager" class="nav-logo-img">
+      </a>
+      <div class="nav-social-mobile">
+        <a href="tel:+4920439577636" aria-label="Telefon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.986.836l.512 3.073a1 1 0 01-.27.934L7.1 9.25a15.014 15.014 0 006.65 6.65l1.407-1.408a1 1 0 01.934-.27l3.073.512A1 1 0 0120 15.72V18a2 2 0 01-2 2A15 15 0 013 5z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li class="has-dropdown">
+          <a href="wein-kaufen.html">Weine</a>
+          <ul class="dropdown">
+            <li><a href="rotwein.html">Rotwein</a></li>
+            <li><a href="weisswein.html">Weißwein</a></li>
+            <li><a href="rose.html">Rosé</a></li>
+            <li><a href="champagner.html">Champagner &amp; Sekt</a></li>
+            <li><a href="spirituosen.html">Whisky &amp; Spirituosen</a></li>
+            <li><a href="feinkost.html">Feinkost</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="weinbar.html" class="active" aria-current="page">Weinbar</a>
+          <ul class="dropdown">
+            <li><a href="speisekarte.html">Speisekarte</a></li>
+            <li><a href="speisekarte.html#getraenke">Getränkekarte</a></li>
+          </ul>
+        </li>
+        <li><a href="weinprobe.html">Weinproben</a></li>
+        <li><a href="veranstaltungen.html">Events</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+      </ul>
+      <div class="nav-social">
+        <a href="https://www.instagram.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="mobile-nav-logo"><img src="https://entdeckerweine.de/wp-content/uploads/2022/08/logo_white.webp" alt="EntdeckerWeine" height="50" loading="eager"></a>
+      <button class="mobile-nav-close" id="mobileClose" aria-label="Menü schließen">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <a href="wein-kaufen.html" class="nav-shop-highlight">Weine kaufen</a>
+      <a href="rotwein.html" class="mobile-nav-sub">Rotwein</a>
+      <a href="weisswein.html" class="mobile-nav-sub">Weißwein</a>
+      <a href="rose.html" class="mobile-nav-sub">Rosé</a>
+      <a href="champagner.html" class="mobile-nav-sub">Champagner &amp; Sekt</a>
+      <a href="spirituosen.html" class="mobile-nav-sub">Whisky &amp; Spirituosen</a>
+      <a href="feinkost.html" class="mobile-nav-sub">Feinkost</a>
+      <a href="weinbar.html" class="nav-bar-toggle">Weinbar</a>
+    <a href="speisekarte.html" class="mobile-bar-sub">↳ Speisekarte</a>
+    <a href="speisekarte.html#getraenke" class="mobile-bar-sub">↳ Getränkekarte</a>
+      <a href="weinprobe.html">Weinproben</a>
+      <a href="veranstaltungen.html">Events</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+  </div>
+
+<!-- BREADCRUMB -->
+<div style="background:var(--dark-bg); border-bottom:1px solid var(--border-subtle);">
+  <div class="breadcrumb">
+    <a href="index.html">Startseite</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="weinbar.html">Weinbar</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Speise- &amp; Getränkekarte</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero hero-sm">
+  <div class="hero-bg" style="background-image: url('https://entdeckerweine.de/wp-content/uploads/2022/08/entdeckerweine_lokal_innenraum.jpg');" id="heroBg"></div>
+  <div class="hero-overlay" style="background: linear-gradient(180deg, rgba(13,5,8,0.6) 0%, rgba(13,5,8,0.45) 40%, rgba(13,5,8,0.9) 100%);"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Weinbar · Gladbeck</span>
+    <h1 class="hero-title">Speise- &amp; <em>Getränkekarte</em></h1>
+    <p class="hero-subtitle">Brotzeit, Käse und Charcuterie zum Zusammenstellen – dazu offene Weine, Spritz und Kaffee. Einfach. Und gut.</p>
+    <div class="hero-actions">
+      <a href="kontakt.html" class="btn btn-gold btn-lg">Tisch reservieren</a>
+      <a href="weinbar.html" class="btn btn-outline btn-lg">Zur Weinbar</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="text-center reveal" style="margin-bottom:2.5rem;">
+      <span class="section-eyebrow">Stand Juli 2026</span>
+      <h2 class="section-title">Unsere <em>Karte</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="menu-toggle reveal" role="tablist" aria-label="Karte wählen">
+      <button role="tab" id="tab-speisen" aria-controls="panel-speisen" aria-selected="true">Speisekarte</button>
+      <button role="tab" id="tab-getraenke" aria-controls="panel-getraenke" aria-selected="false">Getränkekarte</button>
+    </div>
+
+    <div class="menu-panel reveal" id="panel-speisen" role="tabpanel" aria-labelledby="tab-speisen">
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Brotzeit</h3><span class="rule"></span></div>
+        <p class="menu-group-note">zum Zusammenstellen</p>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">BorBäckers Körbchen</span><span class="menu-item-price">5</span><span class="menu-item-desc"><span class="own">BorBäckers Brotmix</span> · aufgeschlagene Butter · Fingersalz</span></div>
+          <div class="menu-item"><span class="menu-item-name">Sommer-Burrata</span><span class="menu-item-price">14,9</span><span class="menu-item-desc">Burrata · gerösteter Pfirsich · Pistazie · Zitronenhonig · ca. 80-Gramm-Portion</span></div>
+          <div class="menu-item"><span class="menu-item-name">Oliven und Mandeln</span><span class="menu-item-price">5,5</span><span class="menu-item-desc">griechische <span class="own">Oliven von Elearte</span> · geröstete Mandeln</span></div>
+          <div class="menu-item"><span class="menu-item-name">Bauernkäse gewürfelt</span><span class="menu-item-price">4,5</span><span class="menu-item-desc">ca. 80 Gramm · by Wim Smit</span></div>
+          <div class="menu-item"><span class="menu-item-name">Manchego</span><span class="menu-item-price">4,5</span><span class="menu-item-desc">ca. 70 Gramm Manchego · by Wim Smit · Chutney</span></div>
+          <div class="menu-item"><span class="menu-item-name">Heublumenkäse</span><span class="menu-item-price">4,5</span><span class="menu-item-desc">ca. 70 Gramm · by Wim Smit</span></div>
+          <div class="menu-item"><span class="menu-item-name">Délice de Bourgogne</span><span class="menu-item-price">5,9</span><span class="menu-item-desc">ca. 100 Gramm · by Wim Smit · Chutney</span></div>
+          <div class="menu-item"><span class="menu-item-name">Französische Salami</span><span class="menu-item-price">8,5</span><span class="menu-item-desc">ganze aufgeschnittene französische Salami nach Wahl</span></div>
+          <div class="menu-item"><span class="menu-item-name">Serrano-Schinken</span><span class="menu-item-price">6,5</span><span class="menu-item-desc">Serrano · <span class="own">BorBäckers Brot</span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Sardinen in Olivenöl + Zitrone</span><span class="menu-item-price">7,5</span><span class="menu-item-desc">Edel-Konserve von <span class="own">José Gourmet</span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Bruschetta</span><span class="menu-item-price">8</span><span class="menu-item-desc">2 Scheiben <span class="own">BorBäckers Brot</span> · Tomatenwürfel · Frühlingszwiebel · Knoblauch · Crème Balsamico</span></div>
+          <div class="menu-item"><span class="menu-item-name">Rillettes de Canard</span><span class="menu-item-price">5,5</span><span class="menu-item-desc">1 Scheibe <span class="own">BorBäckers Brot</span> · Rillettes de Canard</span></div>
+          <div class="menu-item"><span class="menu-item-name">Avocado-Stulle</span><span class="menu-item-price">8,9</span><span class="menu-item-desc"><span class="own">BorBäckers Brot</span> · Avocado-Creme · Wildkräutersalat · geschmolzene Honigtomaten · Feta</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Klassiker</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Currywurst</span><span class="menu-item-price">6,5</span><span class="menu-item-desc">mit hausgemachter Sauce · <span class="own">BorBäckers Brot</span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Karamellisierter Ziegenkäse auf Wildkräutersalat</span><span class="menu-item-price">9,9</span><span class="menu-item-desc">Ziegenkäse · Honig · Wildkräutersalat · Walnuss</span></div>
+          <div class="menu-item"><span class="menu-item-name">Vesperteller für zwei</span><span class="menu-item-price">18,5</span><span class="menu-item-desc">Salami · Schinken · Käse · griechische <span class="own">Oliven von Elearte</span> · Butter · <span class="own">BorBäckers Brotmix</span></span><span class="menu-item-variants"><span>jede weitere Person <b>+9,5</b></span></span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Snacks</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Grissini</span><span class="menu-item-price">4</span><span class="menu-item-desc">Mini-Grissini – krass krosse Brotstänglein</span></div>
+          <div class="menu-item"><span class="menu-item-name">Taralli</span><span class="menu-item-price">4,5</span><span class="menu-item-desc">italienisches Snack-Gebäck in den Sorten Fenchel oder Speck und Käse</span></div>
+          <div class="menu-item"><span class="menu-item-name">Patatas Fritas</span><span class="menu-item-price">3</span><span class="menu-item-desc"><span class="own">Bonilla a la Vista</span> – DIE Apéro-Chips No 1 aus Spanien im 30-g-Beutel</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Süßes</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Genussverstärker</span><span class="menu-item-price">2</span><span class="menu-item-desc">2 Tartufi</span></div>
+          <div class="menu-item"><span class="menu-item-name">Gebäck und Kuchen</span><span class="menu-item-price"></span><span class="menu-item-desc">nach Verfügbarkeit – bitte fragen Sie nach dem Tagesangebot</span></div>
+        </div>
+      </div>
+      <div class="menu-legend">
+        <p>Die <span class="own" style="font-style:normal;">hervorgehobenen</span> Artikel sind Produkte aus unserem Sortiment. Fragen Sie uns gerne nach Empfehlungen.</p>
+        <p>BorBäcker-Spezialitäten gibt es auf Vorbestellung frisch im Weinhandel.</p>
+        <p class="fine">Alle Preise in Euro inkl. der gesetzlichen Mehrwertsteuer. Auf Wunsch erhalten Sie eine Speisekarte mit gekennzeichneten Allergenen und Zusatzstoffen. Fragen Sie unser Personal.</p>
+      </div>
+    </div>
+    <div class="menu-panel reveal" id="panel-getraenke" role="tabpanel" aria-labelledby="tab-getraenke" hidden>
+      <span id="getraenke" style="position:relative;top:-120px;display:block;"></span>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Heißgetränke</h3><span class="rule"></span></div>
+        <p class="menu-group-note">auf Wunsch mit Hafermilch</p>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Espresso</span><span class="menu-item-price">2,2</span></div>
+          <div class="menu-item"><span class="menu-item-name">Americano</span><span class="menu-item-price">2,6</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cappuccino klein</span><span class="menu-item-price">3,3</span><span class="menu-item-desc">etwas milder mit einem einfachen Espresso und aufgeschäumter Milch</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">3,9</span><span class="menu-item-desc">unser Klassiker: etwas stärker durch einen doppelten Espresso mit aufgeschäumter Milch</span></div>
+          <div class="menu-item"><span class="menu-item-name">Latte Macchiato</span><span class="menu-item-price">3,9</span><span class="menu-item-desc">einfacher Espresso mit viel aufgeschäumter Milch</span></div>
+          <div class="menu-item"><span class="menu-item-name">Heiße Schokolade</span><span class="menu-item-price">3,5</span></div>
+          <div class="menu-item"><span class="menu-item-name">Tee versch. Sorten</span><span class="menu-item-price">2,5</span></div>
+          <div class="menu-item"><span class="menu-item-name">Frischer Tee</span><span class="menu-item-price">3</span><span class="menu-item-desc">Frische Minze · Frischer Ingwer · Ingwer-Minze</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Spritziges</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Amérie <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">7,5</span><span class="menu-item-desc">Sasse Münsterländer Aperitif · Prosecco · Eiswürfel</span></div>
+          <div class="menu-item"><span class="menu-item-name">Marcellino <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">7,5</span><span class="menu-item-desc">Limoncello · Prosecco · Eiswürfel</span></div>
+          <div class="menu-item"><span class="menu-item-name">Arancello Spritz <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">7,5</span><span class="menu-item-desc">Arancello-Bitter Orangenlikör · Prosecco · Eiswürfel</span></div>
+          <div class="menu-item"><span class="menu-item-name">Gin-Tonic <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">8</span></div>
+          <div class="menu-item"><span class="menu-item-name">SanBitter-Spritz alkoholfrei <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">7,5</span><span class="menu-item-desc">SanBitter · alkoholfreier Sekt · Eiswürfel</span></div>
+          <div class="menu-item"><span class="menu-item-name">Cocktail des Monats</span><span class="menu-item-price">7,5</span><span class="menu-item-desc">monatlich wechselnd</span></div>
+          <div class="menu-item"><span class="menu-item-name">Weinschorle <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">4,5</span><span class="menu-item-desc">trocken · halbtrocken</span></div>
+          <div class="menu-item"><span class="menu-item-name">Prosecco <small style="opacity:.6;font-weight:400;">(0,1 l)</small></span><span class="menu-item-price">4,5</span><span class="menu-item-desc">PONTE · Italien</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Softies</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Fritz Cola zuckerfrei <small style="opacity:.6;font-weight:400;">(0,33 l)</small></span><span class="menu-item-price">3</span></div>
+          <div class="menu-item"><span class="menu-item-name">Stauder Limo Zitrone naturtrüb <small style="opacity:.6;font-weight:400;">(0,33 l)</small></span><span class="menu-item-price">3</span></div>
+          <div class="menu-item"><span class="menu-item-name">Stauder Limo Cola Mix <small style="opacity:.6;font-weight:400;">(0,33 l)</small></span><span class="menu-item-price">3</span></div>
+          <div class="menu-item"><span class="menu-item-name">Winzer-Traubensaft <small style="opacity:.6;font-weight:400;">(0,2 l)</small></span><span class="menu-item-price">3,5</span><span class="menu-item-desc">weiß · rot</span></div>
+          <div class="menu-item"><span class="menu-item-name">Winzer-Traubensaftschorle</span><span class="menu-item-price">3</span><span class="menu-item-desc">weiß · rot</span></div>
+          <div class="menu-item"><span class="menu-item-name">Schloss Quelle <small style="opacity:.6;font-weight:400;">(0,25 l)</small></span><span class="menu-item-price">2,5</span><span class="menu-item-desc">naturell · medium</span></div>
+          <div class="menu-item"><span class="menu-item-name">Schloss Quelle <small style="opacity:.6;font-weight:400;">(0,75 l)</small></span><span class="menu-item-price">5,5</span><span class="menu-item-desc">naturell · medium</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Bier</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Stauder „Helles Bierchen“ <small style="opacity:.6;font-weight:400;">(0,33 l)</small></span><span class="menu-item-price">3,5</span><span class="menu-item-desc">angenehme Frische und etwas mehr Stammwürze, 5,2 %</span></div>
+          <div class="menu-item"><span class="menu-item-name">Stauder „Alkoholfrei“ <small style="opacity:.6;font-weight:400;">(0,33 l)</small></span><span class="menu-item-price">3,5</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Starkes Zeug</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Obstbrände <small style="opacity:.6;font-weight:400;">(2 cl)</small></span><span class="menu-item-price">ab 3</span></div>
+          <div class="menu-item"><span class="menu-item-name">Rum <small style="opacity:.6;font-weight:400;">(2 cl)</small></span><span class="menu-item-price">ab 4</span><span class="menu-item-desc">diverse</span></div>
+          <div class="menu-item"><span class="menu-item-name">Grappa <small style="opacity:.6;font-weight:400;">(2 cl)</small></span><span class="menu-item-price">4</span><span class="menu-item-desc">Dic’Otto Lune</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Weinprobe</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Kleine Weinprobe des Monats</span><span class="menu-item-price">12,5</span><span class="menu-item-desc">monatlich wechselnd · drei Weine in Probierportionen · Brot · Tafelwasser</span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Weißwein</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Grauburgunder</span><span class="menu-item-price"></span><span class="menu-item-desc">Weingut Scherr · Pfalz — trocken, feine Aromatik nach reifen Aprikosen, Heu und frischen Nüssen. Säurearm</span><span class="menu-item-variants"><span>0,1 l <b>4</b></span><span>0,2 l <b>7</b></span><span>Flasche <b>21</b></span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Riesling feinherb</span><span class="menu-item-price"></span><span class="menu-item-desc">Weingut Forster · Nahe — feinherb, Aromen von Aprikose und Apfel. Sanfte Fruchtsüße trifft auf leichte Säure</span><span class="menu-item-variants"><span>0,1 l <b>4</b></span><span>0,2 l <b>7</b></span><span>Flasche <b>22</b></span></span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Rotwein</h3><span class="rule"></span></div>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Primitivo di Manduria</span><span class="menu-item-price"></span><span class="menu-item-desc">San Marzano · Italien — trocken, Aromen von reifer Kirsche, Pflaume und Vanille. Vollmundig, weich und fruchtig</span><span class="menu-item-variants"><span>0,1 l <b>4,5</b></span><span>0,2 l <b>8</b></span><span>Flasche <b>24</b></span></span></div>
+        </div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-head"><h3>Alkoholfreier Wein</h3><span class="rule"></span></div>
+        <p class="menu-group-note">Weingut Zotz · Baden</p>
+        <div class="menu-items">
+          <div class="menu-item"><span class="menu-item-name">Grauburgunder</span><span class="menu-item-price"></span><span class="menu-item-desc">Weißwein mit feinfruchtigen Aromen von Zitrusfrüchten, Apfel, Birne und frischen Trauben</span><span class="menu-item-variants"><span>0,1 l <b>3,5</b></span><span>0,2 l <b>6,5</b></span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Sauvignon Blanc</span><span class="menu-item-price"></span><span class="menu-item-desc">Weißwein mit erfrischenden Noten von Apfel und Zitrusfrüchten sowie harmonischem Süße-Säure-Spiel</span><span class="menu-item-variants"><span>0,1 l <b>3,5</b></span><span>0,2 l <b>6,5</b></span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Rosé</span><span class="menu-item-price"></span><span class="menu-item-desc">Aromen von Himbeere, Erdbeere und roter Johannisbeere</span><span class="menu-item-variants"><span>0,1 l <b>3,5</b></span><span>0,2 l <b>6,5</b></span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Création Rouge</span><span class="menu-item-price"></span><span class="menu-item-desc">Rotwein mit kräftiger Aromatik von dunklen Beeren wie Brombeere, Johannisbeere und Kirsche. Vollmundig mit markanten Tanninen</span><span class="menu-item-variants"><span>0,1 l <b>3,5</b></span><span>0,2 l <b>6,5</b></span></span></div>
+          <div class="menu-item"><span class="menu-item-name">Sekt alkoholfrei</span><span class="menu-item-price"></span><span class="menu-item-desc">fruchtige Aromen von Zitrusfrüchten, Pfirsich und etwas Muskat. Lebendig frisch</span><span class="menu-item-variants"><span>0,1 l <b>4,5</b></span></span></div>
+        </div>
+      </div>
+      <div class="menu-legend">
+        <p>Beachten Sie auch unsere monatlich wechselnde <strong style="color:var(--crimson,#8B1A2A);">Entdecker-Weinkarte</strong> mit ausgewählten Weinen.</p>
+        <p class="fine">Alle Preise in Euro inkl. der gesetzlichen Mehrwertsteuer. Fragen Sie gerne nach Weinen aus dem Verkaufssortiment – hier berechnen wir zusätzlich ein Korkgeld in Höhe von 12 €.</p>
+      </div>
+    </div>
+
+    <div class="text-center reveal" style="margin-top:4rem;">
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="kontakt.html" class="btn btn-gold btn-lg">Tisch reservieren</a>
+        <a href="weinprobe.html" class="btn btn-outline btn-lg">Weinprobe buchen</a>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo">EntdeckerWeine</div>
+        <p>Weinhandel Martin Volmer e.K.<br>Marktstraße 6 · 45964 Gladbeck</p>
+        <p>📞 <a href="tel:+4920439577636">0 20 43 / 95 77 636</a><br>
+        ✉ <a href="mailto:info@entdeckerweine.de">info@entdeckerweine.de</a></p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/entdeckerweine/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Weine</h4>
+        <ul>
+          <li><a href="rotwein.html">Rotwein</a></li>
+          <li><a href="weisswein.html">Weißwein</a></li>
+          <li><a href="rose.html">Rosé</a></li>
+          <li><a href="champagner.html">Champagner &amp; Sekt</a></li>
+          <li><a href="spirituosen.html">Whisky &amp; Spirituosen</a></li>
+          <li><a href="feinkost.html">Feinkost</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Erlebnisse</h4>
+        <ul>
+          <li><a href="weinbar.html">Weinbar &amp; Gastronomie</a></li>
+          <li><a href="speisekarte.html">Speise- &amp; Getränkekarte</a></li>
+          <li><a href="weinprobe.html">Weinproben</a></li>
+          <li><a href="veranstaltungen.html">Events &amp; Veranstaltungen</a></li>
+        </ul>
+        <h4 style="margin-top:1.5rem">Öffnungszeiten</h4>
+        <p style="font-size:.9rem;color:var(--warm-white);opacity:.8">Ladenlokal: Mi–Fr 11–14 &amp; 15–19 · Sa 10–15<br>Weinbar: Do &amp; Fr 17–23 · Sa 11–15</p>
+      </div>
+      <div class="footer-col">
+        <h4>Über uns</h4>
+        <ul>
+          <li><a href="ueber-uns.html">Unser Team</a></li>
+          <li><a href="kontakt.html">Kontakt &amp; Anfahrt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Weinhandel Martin Volmer e.K. · EntdeckerWeine · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+    </div>
+  </footer>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  function openNav() { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); hamburger.classList.add('is-active'); document.body.style.overflow='hidden'; }
+  function closeNav() { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); hamburger.classList.remove('is-active'); document.body.style.overflow=''; }
+  hamburger?.addEventListener('click', openNav);
+  mobileClose?.addEventListener('click', closeNav);
+  mobileNav?.addEventListener('click', e => { if(e.target.tagName==='A' && !e.target.classList.contains('nav-shop-highlight')) closeNav(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeNav(); });
+
+    function setupMobileAccordion(toggleSel, subSel) {
+    const toggle = mobileNav?.querySelector(toggleSel);
+    const subs = mobileNav?.querySelectorAll(subSel);
+    if (!toggle || !subs?.length) return;
+    subs.forEach(a => { a.style.display = 'none'; });
+    toggle.insertAdjacentHTML('beforeend', '<span class="acc-toggle-arrow" style="float:right;transition:transform 0.25s">▾</span>');
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const open = this.classList.toggle('acc-open');
+      subs.forEach(a => { a.style.display = open ? '' : 'none'; });
+      const arrow = this.querySelector('.acc-toggle-arrow');
+      if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+    });
+  }
+  setupMobileAccordion('.nav-shop-highlight', '.mobile-nav-sub');
+  setupMobileAccordion('.nav-bar-toggle', '.mobile-bar-sub');
+  const siteNav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => { siteNav?.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+  const tabs = document.querySelectorAll('.menu-toggle [role="tab"]');
+  function activateTab(tab, doScroll) {
+    if (!tab) return;
+    tabs.forEach(t => {
+      const sel = t === tab;
+      t.setAttribute('aria-selected', sel ? 'true' : 'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !sel;
+    });
+    if (doScroll) {
+      const anchor = document.querySelector('.menu-toggle');
+      window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    }
+  }
+  tabs.forEach(tab => tab.addEventListener('click', () => activateTab(tab, true)));
+
+  function applyHash() {
+    const h = (location.hash || '').toLowerCase();
+    if (h === '#getraenke' || h === '#getränke') { activateTab(document.getElementById('tab-getraenke'), true); }
+    else if (h === '#speisen' || h === '#speisekarte') { activateTab(document.getElementById('tab-speisen'), true); }
+  }
+  applyHash();
+  window.addEventListener('hashchange', applyHash);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('in-view'); }
+    else { observer.observe(el); }
+  });
+</script>
+</body>
+</html>

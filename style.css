@@ -1,0 +1,2870 @@
+/* =====================================================
+   ENTDECKER WEINE — Shared Stylesheet
+   Weinhandel Martin Volmer e.K. | Gladbeck
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@400;600;700&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --crimson:        #8B1A2A;
+  --crimson-dark:   #5E0F1A;
+  --crimson-light:  #B02235;
+  --near-black:     #0D0508;
+  --dark-bg:        #120A0C;
+  --dark-surface:   #1C1013;
+  --gold:           #C4963C;
+  --gold-light:     #E5B96A;
+  --gold-pale:      #F0D89A;
+  --warm-white:     #F5EDD8;
+  --cream:          #EDE0C4;
+  --text-light:     #C8B89A;
+  --text-muted:     #7A6655;
+  --border-subtle:  rgba(196, 150, 60, 0.2);
+  --border-gold:    rgba(196, 150, 60, 0.5);
+
+  --font-display:   'Cormorant Garamond', Georgia, serif;
+  --font-script:    'Dancing Script', cursive;
+  --font-body:      'Raleway', sans-serif;
+  /* Aliase für Kompatibilität mit älteren Inline-Styles */
+  --font-serif:     'Cormorant Garamond', Georgia, serif;
+  --font-sans:      'Raleway', sans-serif;
+
+  --nav-height:     72px;
+  --topbar-height:  38px;
+  --header-height:  110px; /* topbar 38 + nav 72 */
+  --transition:     0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --shadow-gold:    0 4px 30px rgba(196, 150, 60, 0.15);
+  --shadow-card:    0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #FAF7F2;
+  color: #1A0A0E;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: var(--header-height); /* offset for fixed topbar + nav */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+  background: var(--crimson-dark);
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.topbar a {
+  color: var(--cream);
+  opacity: 0.85;
+  font-size: 0.78rem;
+}
+
+.topbar a:hover {
+  color: var(--gold-pale);
+  opacity: 1;
+}
+
+.topbar-divider {
+  opacity: 0.35;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--near-black);
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  color: var(--near-black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196, 150, 60, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--near-black);
+  transform: translateY(-2px);
+}
+
+.btn-crimson {
+  background: var(--crimson);
+  color: var(--warm-white);
+}
+
+.btn-crimson:hover {
+  background: var(--crimson-light);
+  color: var(--warm-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 26, 42, 0.4);
+}
+
+.btn-white {
+  background: var(--warm-white);
+  color: var(--near-black);
+}
+
+.btn-white:hover {
+  background: var(--cream);
+  color: var(--crimson-dark);
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 1.1rem 2.8rem;
+  font-size: 0.88rem;
+}
+
+/* ===== HERO SECTIONS ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 85vh;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+
+.hero-bg.loaded {
+  transform: scale(1);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 5, 8, 0.5) 0%,
+    rgba(13, 5, 8, 0.3) 40%,
+    rgba(13, 5, 8, 0.75) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border-gold);
+  padding: 0.4rem 1.2rem;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s 0.2s forwards;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--warm-white);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s 0.4s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-pale);
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--cream);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 0.8s 0.6s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 0.8s 0.8s forwards;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 2;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.hero-scroll svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Small hero for inner pages */
+.hero-sm {
+  min-height: 50vh;
+}
+
+.hero-sm .hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 5rem 2rem;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-inner-lg {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #1A0A0E;
+  margin-bottom: 1.5rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold-pale);
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  color: #4A3020;
+  line-height: 1.9;
+  max-width: 650px;
+}
+
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 1.5rem 0;
+}
+
+.section-dark {
+  background: #F2EBE0;
+}
+
+.section-darker {
+  background: #EDE3D5;
+}
+
+.section-surface {
+  background: #F7F2EA;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center .section-divider {
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  width: 100px;
+}
+
+.text-center .section-lead {
+  margin: 0 auto;
+}
+
+/* ===== CARD GRID ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.card-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Simple feature-block without image (emoji icon + text) */
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.feature-block:not(:has(.feature-block-bg)) {
+  aspect-ratio: unset;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 26, 42, 0.15);
+  border-radius: 4px;
+  padding: 1.8rem 1.5rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.feature-block:not(:has(.feature-block-bg)):hover {
+  border-color: rgba(196,150,60,0.5);
+  transform: translateY(-3px);
+}
+
+/* ===== WINE REGION / VARIETY CARDS (used on rotwein, weisswein, rose etc.) ===== */
+.wine-card-body {
+  padding: 1.2rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wine-region {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.wine-grapes {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 26, 42, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-img-placeholder {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, var(--crimson-dark) 0%, var(--dark-surface) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border-gold);
+  font-size: 3rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1A0A0E;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #4A3020;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.card-price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ===== FEATURE BLOCKS ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 0;
+}
+
+.feature-block {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+
+.feature-block-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.feature-block:hover .feature-block-bg {
+  transform: scale(1.05);
+}
+
+.feature-block-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(13,5,8,0.92) 0%, rgba(13,5,8,0.3) 60%, transparent 100%);
+  transition: background var(--transition);
+}
+
+.feature-block:hover .feature-block-overlay {
+  background: linear-gradient(0deg, rgba(94,15,26,0.9) 0%, rgba(94,15,26,0.4) 60%, transparent 100%);
+}
+
+.feature-block-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 2rem;
+  z-index: 2;
+}
+
+.feature-block-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-block-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--warm-white);
+  margin-bottom: 0.5rem;
+}
+
+.feature-block-text {
+  font-size: 0.88rem;
+  color: var(--cream);
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.feature-block-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap var(--transition), color var(--transition);
+}
+
+.feature-block:hover .feature-block-link {
+  gap: 0.8rem;
+  color: var(--gold-light);
+}
+
+/* ===== QUOTE SECTION ===== */
+.quote-section {
+  background: var(--crimson-dark);
+  background-image: url('https://entdeckerweine.de/wp-content/uploads/2022/08/bg_zitat.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-section::before {
+  content: '"';
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 20rem;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--warm-white);
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-author {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== INFO STRIPS ===== */
+.info-strip {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  background: #F2EBE0;
+  border-top: 1px solid rgba(139, 26, 42, 0.15);
+  border-bottom: 1px solid rgba(139, 26, 42, 0.15);
+}
+
+/* USP-Strip auf wein-kaufen.html — 4 Punkte nebeneinander mit Schatten */
+.info-strip-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: #F2EBE0;
+  border-right: 1px solid rgba(139, 26, 42, 0.15);
+  transition: background 0.3s;
+}
+
+.info-item:last-child {
+  border-right: none;
+}
+
+.info-item:hover {
+  background: rgba(139, 26, 42, 0.04);
+}
+
+.info-icon {
+  font-size: 1.8rem;
+  color: var(--gold);
+}
+
+.info-item > span:last-child {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: #1A0A0E;
+  letter-spacing: 0.04em;
+}
+
+.info-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 3rem;
+  flex: 1;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.info-strip-item:last-child {
+  border-right: none;
+}
+
+.info-strip-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.info-strip-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.info-strip-value {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #1A0A0E;
+}
+
+/* ===== TWO-COLUMN LAYOUT ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.two-col.reverse {
+  direction: rtl;
+}
+
+.two-col.reverse > * {
+  direction: ltr;
+}
+
+.two-col-img {
+  position: relative;
+}
+
+.two-col-img img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.two-col-img::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--gold);
+  border-radius: 2px;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* ===== EVENTS LIST ===== */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.event-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 26, 42, 0.15);
+  border-radius: 4px;
+  transition: all var(--transition);
+}
+
+.event-item:hover {
+  border-color: var(--border-gold);
+  background: rgba(196, 150, 60, 0.05);
+}
+
+.event-date {
+  text-align: center;
+  background: var(--crimson);
+  padding: 0.8rem;
+  border-radius: 3px;
+}
+
+.event-date-day {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--warm-white);
+  line-height: 1;
+  display: block;
+}
+
+.event-date-month {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.85;
+}
+
+.event-info-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.event-info-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: #1A0A0E;
+  margin-bottom: 0.3rem;
+}
+
+.event-info-detail {
+  font-size: 0.85rem;
+  color: #4A3020;
+}
+
+/* ===== OPENING HOURS ===== */
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hours-table tr {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hours-table tr:last-child {
+  border-bottom: none;
+}
+
+.hours-table td {
+  padding: 0.8rem 0;
+  font-size: 0.9rem;
+  color: #4A3020;
+}
+
+.hours-table td:first-child {
+  font-weight: 600;
+  color: #1A0A0E;
+  width: 45%;
+}
+
+.hours-table td.closed {
+  color: var(--text-muted);
+}
+
+.hours-table tr.today td {
+  color: var(--gold);
+}
+
+/* ===== NEWSLETTER ===== */
+.newsletter-section {
+  background: var(--crimson-dark);
+  border-top: 1px solid rgba(196, 150, 60, 0.25);
+  border-bottom: 1px solid rgba(196, 150, 60, 0.25);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.8rem;
+  max-width: 500px;
+  margin: 2rem auto 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 0.85rem 1.2rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 26, 42, 0.25);
+  border-radius: 2px;
+  color: #1A0A0E;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color var(--transition);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.newsletter-input::placeholder {
+  color: #7A6655;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.breadcrumb-sep {
+  opacity: 0.4;
+}
+
+.breadcrumb-current {
+  color: #1A0A0E;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #3A0A12;
+  border-top: 1px solid var(--border-subtle);
+  padding: 5rem 2rem 0;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-brand-name {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.footer-brand-legal {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.footer-brand-desc {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 300px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: all var(--transition);
+}
+
+.footer-social a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(196, 150, 60, 0.1);
+}
+
+.footer-col-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 1.2rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+  padding-left: 0.4rem;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  gap: 0.7rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  align-items: flex-start;
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--gold);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.footer-bottom a {
+  color: var(--text-muted);
+}
+
+.footer-bottom a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* ===== WINE CATEGORY PILLS ===== */
+.category-pills {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.pill {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.pill:hover,
+.pill.active {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  color: var(--warm-white);
+}
+
+/* ===== GLASS CARD ===== */
+.glass-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(139, 26, 42, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
+.gold-rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 3rem 0;
+  opacity: 0.5;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-gold));
+}
+
+.ornament::after {
+  background: linear-gradient(90deg, var(--border-gold), transparent);
+}
+
+.ornament-text {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+/* ===== TAG/BADGE ===== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.7rem;
+  background: rgba(139, 26, 42, 0.4);
+  border: 1px solid var(--crimson);
+  border-radius: 2px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.tag-gold {
+  background: rgba(196, 150, 60, 0.15);
+  border-color: var(--border-gold);
+  color: var(--gold);
+}
+
+/* ===== PAGE HEADER (inner pages) ===== */
+.page-header {
+  background: var(--dark-bg);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===== SCHEMA / SEO HIDDEN ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-block {
+    aspect-ratio: 16/7;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .two-col.reverse {
+    direction: ltr;
+  }
+  .two-col-img img {
+    height: 320px;
+  }
+  .card-grid-3,
+  .card-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .info-strip {
+    flex-direction: column;
+  }
+  .info-strip-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .info-strip-inner {
+    flex-direction: column;
+  }
+  .info-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .info-item:last-child {
+    border-bottom: none;
+  }
+  .info-strip-item:last-child {
+    border-bottom: none;
+  }
+  .event-item {
+    grid-template-columns: 80px 1fr;
+  }
+  .event-item .btn {
+    grid-column: 1/-1;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 3.5rem 1.2rem;
+  }
+  .hero {
+    min-height: 70vh;
+  }
+  .hero-sm {
+    min-height: 40vh;
+  }
+  .card-grid,
+  .card-grid-3,
+  .card-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .topbar-inner {
+    gap: 0.8rem;
+    font-size: 0.7rem;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-block {
+    aspect-ratio: 4/3;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  nav {
+    padding: 0 1.2rem;
+  }
+}
+
+/* ================================================================
+   SUBPAGE NAV – .site-nav structure (alle Unterseiten außer index)
+   ================================================================ */
+
+.site-nav {
+  position: fixed;
+  top: var(--topbar-height);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(107, 15, 26, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.site-nav.scrolled {
+  background: rgba(94, 10, 20, 0.99);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-logo-img {
+  width: 125px !important;
+  height: auto !important;
+}
+
+.site-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .nav-links > li > a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  transition: color var(--transition);
+}
+
+.site-nav .nav-links > li > a:hover,
+.site-nav .nav-links > li > a.active {
+  color: var(--gold);
+}
+
+/* Dropdown */
+.site-nav .has-dropdown {
+  position: relative;
+}
+
+.site-nav .has-dropdown > a::after {
+  content: ' ▾';
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+.site-nav .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(80, 10, 20, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 2px solid var(--gold);
+  min-width: 200px;
+  padding: 0.5rem 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.site-nav .has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.site-nav .dropdown a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  transition: background var(--transition), color var(--transition);
+}
+
+.site-nav .dropdown a:hover,
+.site-nav .dropdown a[aria-current="page"] {
+  background: rgba(196, 150, 60, 0.1);
+  color: var(--gold);
+}
+
+.site-nav .nav-cta {
+  padding: 0.45rem 1.1rem !important;
+  border: 1px solid var(--gold) !important;
+  border-radius: 2px;
+  color: var(--gold) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition) !important;
+}
+
+.site-nav .nav-cta:hover {
+  background: var(--gold) !important;
+  color: var(--near-black) !important;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--warm-white);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile overlay nav */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-nav.is-open,
+.mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Crimson header bar at top of mobile menu */
+.mobile-nav-header {
+  background: var(--crimson-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.mobile-nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav-logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+.mobile-nav-close {
+  background: var(--crimson-dark);
+  border: none;
+  cursor: pointer;
+  color: var(--warm-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  line-height: 1;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.mobile-nav-close:hover {
+  background: rgba(80, 8, 16, 0.9);
+}
+
+/* Warm sand/beige body for nav items */
+.mobile-nav-body {
+  background: #C8A87A;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0 2rem;
+}
+
+.mobile-nav a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2A1008;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(42, 16, 8, 0.15);
+  transition: background var(--transition), color var(--transition);
+  text-decoration: none;
+  text-align: center;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  background: rgba(42, 16, 8, 0.1);
+  color: var(--crimson-dark);
+}
+
+/* Shop highlight in crimson */
+.mobile-nav a.nav-shop-highlight {
+  background: var(--crimson);
+  color: var(--warm-white);
+  border-bottom-color: rgba(255,255,255,0.15);
+}
+
+.mobile-nav a.nav-shop-highlight:hover {
+  background: var(--crimson-dark);
+  color: var(--warm-white);
+}
+
+/* Sub-items (indented) */
+.mobile-nav a.mobile-nav-sub {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding-left: 3rem;
+  color: #3D1A0A;
+  background: rgba(42, 16, 8, 0.06);
+  letter-spacing: 0.08em;
+}
+
+.mobile-nav a.weinbar-sub {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding-left: 3rem;
+  color: #3D1A0A;
+  background: rgba(42, 16, 8, 0.06);
+  letter-spacing: 0.08em;
+}
+
+.mobile-nav a.mobile-bar-sub {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding-left: 3rem;
+  color: #3D1A0A;
+  background: rgba(42, 16, 8, 0.06);
+  letter-spacing: 0.08em;
+}
+
+.mobile-nav a.nav-bar-toggle {
+  cursor: pointer;
+}
+
+/* Page offset for fixed nav */
+.site-nav ~ * {
+  /* don't auto-push, each page has its own padding-top */
+}
+
+/* ================================================================
+   SUBPAGE FOOTER – .site-footer structure
+   ================================================================ */
+
+.site-footer {
+  background: #3A0A12;
+  border-top: 1px solid var(--border-subtle);
+  padding: 4rem 2rem 0;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.footer-col p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0 0 0.8rem;
+}
+
+.footer-col p a {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.footer-col p a:hover {
+  color: var(--gold);
+}
+
+.footer-col h4 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin: 0 0 1.1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-col ul a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.footer-col ul a:hover {
+  color: var(--gold);
+  padding-left: 0.4rem;
+}
+
+.site-footer .footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.site-footer .footer-bottom a {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.site-footer .footer-bottom a:hover {
+  color: var(--gold);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: rgba(196, 150, 60, 0.08);
+  border-bottom: 1px solid rgba(139, 26, 42, 0.12);
+}
+
+.breadcrumb-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb-inner a {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.breadcrumb-inner a:hover {
+  color: var(--gold);
+}
+
+.breadcrumb-inner span {
+  opacity: 0.5;
+}
+
+/* Page hero for subpages */
+.page-hero {
+  padding-top: 3rem;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.35);
+  transform: scale(1.05);
+  transition: transform 6s ease;
+}
+
+.page-hero.loaded .page-hero-bg {
+  transform: scale(1);
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 3rem 2rem;
+}
+
+.page-hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--warm-white);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.page-hero-desc {
+  font-size: 1.05rem;
+  color: rgba(248, 245, 240, 0.8);
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+/* ================================================================
+   WINE SHOWCASE WIDGET
+   ================================================================ */
+
+.wine-showcase {
+  padding: 5rem 2rem;
+  background: #FAF7F2;
+}
+
+.wine-showcase-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wine-showcase-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wine-showcase-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: #1A0A0E;
+  font-weight: 700;
+}
+
+.wine-showcase-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.wine-shuffle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+
+.wine-shuffle-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.wine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.wine-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  animation: wineCardIn 0.4s ease both;
+}
+
+.wine-card:hover {
+  border-color: rgba(196, 150, 60, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+@keyframes wineCardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wine-card-number {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+.wine-card-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1A0A0E;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.wine-card-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.wine-card-price span {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 0.2rem;
+}
+
+/* Wine card image block (used on region/grape cards) */
+.wine-card-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .wine-card-img {
+    height: 160px;
+  }
+}
+
+/* ================================================================
+   RESPONSIVE – subpage nav & footer
+   ================================================================ */
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile, reduce topbar height and hide extra items */
+  :root {
+    --topbar-height: 30px;
+    --header-height: 142px; /* topbar 30 + nav 72 + social row 40 */
+  }
+
+  .topbar-inner {
+    gap: 0.6rem;
+    font-size: 0.68rem;
+  }
+
+  /* Mobile topbar: only show phone number */
+  .topbar-inner span:first-child,
+  .topbar-inner span:nth-child(3),
+  .topbar .hours-badge {
+    display: none;
+  }
+  .topbar a[href^="mailto"] {
+    display: none;
+  }
+
+  .topbar-divider {
+    display: none;
+  }
+
+  .site-nav .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* nav-inner stays single row: logo | social icons | hamburger */
+  .nav-inner {
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 72px;
+    min-height: 72px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .wine-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-hero {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-inner {
+    padding: 0 1rem;
+  }
+
+  .two-col-img img {
+    height: 240px;
+  }
+
+  .page-hero {
+    min-height: 240px;
+  }
+}
+
+/* ================================================================
+   WINE SHOWCASE – extra elements
+   ================================================================ */
+.section-wine-showcase {
+  background: #FAF7F2;
+}
+
+.wine-showcase-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wine-showcase-count-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.wine-showcase-count {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: background var(--transition), color var(--transition);
+}
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--near-black);
+}
+
+/* wine-shuffle-btn inside showcase-footer uses btn-outline-gold */
+.wine-shuffle-btn.btn-outline-gold {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.wine-shuffle-btn.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--near-black);
+}
+
+/* ================================================================
+   MISSING UTILITY CLASSES — used by rotwein.html, weinbar.html etc
+   ================================================================ */
+
+/* hours-badge in topbar (subpages) */
+.hours-badge {
+  font-size: 0.75rem;
+  color: var(--cream);
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+/* section / container aliases for older subpage markup */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section.section-dark,
+.section-dark {
+  background: #F2EBE0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* col-text / col-image inside .two-col (used in rotwein.html) */
+.col-text,
+.col-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-image img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* section-header / section-intro (rotwein.html) */
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #1A0A0E;
+  line-height: 1.15;
+}
+
+.section-intro {
+  font-size: 1rem;
+  color: #4A3020;
+  line-height: 1.9;
+  max-width: 640px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* wine-quote (rotwein.html) */
+.wine-quote {
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--gold-pale);
+  line-height: 1.7;
+}
+
+/* quote-section used in weinbar.html */
+.quote-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: #3A0A12;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  font-style: italic;
+  color: var(--warm-white);
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+
+.quote-author {
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* section-local-seo (used in weinbar, weisswein etc) */
+.section-local-seo {
+  padding: 4rem 2rem;
+}
+
+/* ================================================================
+   MOBILE — consistent responsive fixes across all pages
+   ================================================================ */
+
+/* Atmosphere photo grid (3 columns inline on weinbar.html) */
+@media (max-width: 768px) {
+  /* Generic inline 3-col grids become 1 column on mobile */
+  [style*="grid-template-columns:repeat(3,1fr)"],
+  [style*="grid-template-columns: repeat(3,1fr)"],
+  [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Two-col stacks to single column */
+  .two-col {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem;
+  }
+
+  /* Reverse direction fix on mobile */
+  .two-col.reverse {
+    direction: ltr;
+  }
+
+  /* Images in two-col layout full-width on mobile */
+  .two-col-img img {
+    height: 300px;
+  }
+
+  /* col-image on mobile */
+  .col-image img {
+    height: 260px;
+  }
+
+  /* Ensure decorative corner border doesn't overflow on mobile */
+  .two-col-img::after {
+    display: none;
+  }
+
+  /* Card grid mobile: max 2 columns then 1 */
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Section padding reduced on mobile */
+  .section {
+    padding: 3rem 1.2rem;
+  }
+
+  .section-inner {
+    padding: 3rem 1.2rem;
+  }
+
+  /* Event items responsive */
+  .event-item {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .event-item > a {
+    grid-column: 1 / -1;
+  }
+
+  /* Photo grid items: remove margin-top offset so stacked nicely */
+  [style*="margin-top:2rem"] img {
+    /* can't override inline styles selectively in CSS without JS */
+  }
+}
+
+@media (max-width: 640px) {
+  /* Card grid single column on small phones */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Quote section smaller text */
+  .quote-text {
+    font-size: 1.2rem;
+  }
+
+  /* Topbar: hide hours on very small screens */
+  .hours-badge {
+    display: none;
+  }
+
+  /* Footer columns: single column */
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Two-col gap tighter */
+  .two-col {
+    gap: 2rem;
+  }
+
+  /* Col image smaller */
+  .col-image img,
+  .two-col-img img {
+    height: 220px;
+  }
+}
+
+/* ================================================================
+   NAV — unified scrolled state
+   ================================================================ */
+.site-nav.scrolled {
+  background: rgba(94, 10, 20, 0.99);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+/* Mobile nav close button — defined above at .mobile-nav-close */
+
+/* .mobile-nav position:fixed is set above (line ~1687) — do NOT override with relative here.
+   The close button uses position:absolute which works fine inside a fixed container. */
+
+/* ================================================================
+   INDEX.HTML — nav-wrapper legacy support
+   If the old markup is still in place, keep it working
+   ================================================================ */
+.nav-wrapper {
+  display: none; /* hidden — replaced by .site-nav */
+}
+
+/* ================================================================
+   SOCIAL ICONS — nav + footer
+   ================================================================ */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.nav-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--warm-white);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.nav-social a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(196,150,60,0.12);
+}
+
+.nav-social svg {
+  width: 15px;
+  height: 15px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(196,150,60,0.3);
+  color: var(--gold-light);
+  transition: all var(--transition);
+}
+
+.footer-social a:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--near-black);
+}
+
+.footer-social svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 900px) {
+  .nav-social {
+    display: none;
+  }
+}
+
+/* ================================================================
+   MOBILE NAV SOCIAL ROW — inline between logo and hamburger, transparent
+   ================================================================ */
+.nav-social-mobile {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 900px) {
+  .nav-social-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    /* Inline row — no full width, no background strip */
+    margin: 0 auto;
+  }
+
+  .nav-social-mobile a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    /* Transparent — blends into crimson header */
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: var(--warm-white);
+    text-decoration: none;
+    transition: opacity var(--transition);
+    flex-shrink: 0;
+  }
+
+  .nav-social-mobile a:hover,
+  .nav-social-mobile a:active {
+    opacity: 0.75;
+    background: transparent;
+  }
+
+  .nav-social-mobile svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile: reduce logo size by ~11% */
+@media (max-width: 900px) {
+  .nav-logo-img {
+    width: 111px !important; /* was 125px → ≈11% smaller */
+  }
+}
+
+/* ================================================================
+   PHOTO VISIBILITY — ensure images show fully on mobile
+   ================================================================ */
+.feature-block {
+  min-height: 280px; /* was only set at desktop */
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* On mobile, use a generous aspect ratio so the full image is visible */
+  .feature-block {
+    aspect-ratio: 3/2;
+    min-height: 240px;
+  }
+
+  /* Keep background-position top so faces/products aren't cropped */
+  .feature-block-bg {
+    transform: none !important;
+    background-position: center top;
+  }
+
+  /* Hero smaller on mobile */
+  .hero {
+    min-height: 85svh;
+  }
+
+  /* Hero title smaller */
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  /* Hero actions stack on mobile */
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  /* hero-sm subpage heroes */
+  .hero.hero-sm {
+    min-height: 50svh;
+  }
+
+  /* Page heroes on mobile — a bit taller so hero image shows well */
+  .page-hero {
+    min-height: 260px;
+  }
+
+  /* col-image: use aspect-ratio instead of fixed height to avoid cropping */
+  .col-image img {
+    height: auto !important;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* two-col-img: use aspect-ratio instead of fixed height */
+  .two-col-img img {
+    height: auto !important;
+    aspect-ratio: 4/3;
+  }
+
+  /* Photo grid on mobile: single column with good height */
+  .photo-grid-3 {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .photo-grid-3 > div {
+    aspect-ratio: 4/3 !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Even on very small screens, keep a decent aspect ratio */
+  .feature-block {
+    aspect-ratio: 3/2;
+    min-height: 200px;
+  }
+
+  /* Atmosphere photos on tiny screens */
+  .photo-grid-3 > div {
+    aspect-ratio: 3/2 !important;
+  }
+}
+
+/* Weinbar teaser 2-col layout on index page */
+.weinbar-teaser-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .weinbar-teaser-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .weinbar-teaser-grid > div:first-child {
+    min-height: 280px;
+  }
+}
+
+/* Photo grid for atmosphere sections */
+.photo-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Image zoom on hover — replaces onmouseover="scale(1.04)" inline JS handlers */
+.photo-grid-3 img {
+  transition: transform 0.6s ease;
+}
+.photo-grid-3 img:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .photo-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .photo-grid-3 > div {
+    margin-top: 0 !important;
+    aspect-ratio: 4/3 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Even on very small screens, keep a decent aspect ratio */
+  .feature-block {
+    aspect-ratio: 3/2;
+    min-height: 200px;
+  }
+
+  /* Atmosphere photos on tiny screens */
+  .photo-grid-3 > div {
+    aspect-ratio: 3/2 !important;
+  }
+}
+
+/* ================================================================
+   MOBILE PHOTO IMPROVEMENTS – alle Fotos vollständig sichtbar
+   ================================================================ */
+
+/* wine-card-img: consistent height, gradient cards look good */
+.wine-card-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+/* page-hero: ensure photos show well on all sizes */
+/* kontakt page: taller hero so the sign/text is visible */
+.page-hero.kontakt-hero {
+  min-height: 480px;
+}
+@media (max-width: 768px) {
+  .page-hero.kontakt-hero {
+    min-height: 360px;
+  }
+  .page-hero {
+    min-height: 280px;
+    background-position: center top;
+  }
+
+  /* col-image photos: full width, no height clipping */
+  .col-image,
+  .col-image img {
+    width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+  }
+
+  /* wine-card-img on mobile: slightly shorter */
+  .wine-card-img {
+    height: 160px;
+  }
+
+  /* cat-cards: taller on mobile for better photo display */
+  .cat-card {
+    min-height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* event-card images */
+  .event-img,
+  .event-card img {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  /* team / person photos */
+  .team-photo,
+  .team-img {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+/* Reset rotwein image offset on mobile so it stays centered */
+@media (max-width: 768px) {
+  .rotwein-hero-img {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    object-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    min-height: 260px;
+  }
+
+  .wine-card-img {
+    height: 140px;
+  }
+
+  .cat-card {
+    min-height: 180px;
+  }
+
+  /* Ensure background images always cover fully on small phones */
+  [style*="background-image"] {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+
+/* ===== KATEGORIE-KARTEN: Photo-Background Cards (wein-kaufen.html) ===== */
+/* .cat-card uses background-image on <a> tag; overlay + content positioned on top */
+.cat-card {
+  position: relative;
+  display: block;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.65) 100%);
+  transition: background 0.3s;
+}
+
+.cat-card:hover .cat-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%);
+}
+
+.cat-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.cat-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--warm-white);
+  margin: 0 0 0.3rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.cat-content p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.8rem;
+  line-height: 1.4;
+}
+
+.cat-link {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.cat-card:hover .cat-link {
+  color: var(--warm-white);
+  border-color: var(--warm-white);
+}
+
+/* ===== KATEGORIE-KARTEN: Foto-Icon (ersetzt Emoji) ===== */
+.cat-icon-img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto 0.5rem;
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+/* ===== WEIN-KATEGORIEN-KARTEN (onmouseover → CSS :hover) ===== */
+/* Replaces the 6× inline onmouseover/onmouseout JS handlers on the
+   wine-category grid in index.html. */
+.wein-cat-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  transition: border-color 0.3s, transform 0.3s;
+  background: var(--dark-surface);
+}
+.wein-cat-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+/* ===== HERO-SUB: Untertitel-Text im Hero-Bereich (Unterseiten) ===== */
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(245, 237, 216, 0.85);
+  max-width: 620px;
+  line-height: 1.75;
+  margin: 0 0 2rem;
+}
+
+/* ================================================================
+   LAYOUT SYMMETRY & VISUAL POLISH — END OF FILE
+   ================================================================ */
