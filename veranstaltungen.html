@@ -17,11 +17,18 @@
   <style>
     /* Live-Embed der Shop-Veranstaltungen (Events-Seite) */
     .events-embed{position:relative;max-width:1000px;margin:0 auto;height:900px;overflow:hidden;border-radius:8px;border:1px solid var(--border-subtle);box-shadow:0 24px 60px rgba(0,0,0,.4);background:#fff}
+    /* Desktop: iframe ist fix 1000px breit -> Shop-Kopf (Topbar+Nav, ~158px) sauber wegschneiden */
     .events-embed-frame{position:absolute;top:-158px;left:0;width:100%;height:calc(100% + 158px);border:0;display:block}
     .events-embed-hint{margin-top:1rem;font-size:.8rem;color:var(--text-muted)}
-    @media (max-width:768px){
-      .events-embed{height:640px}
-      .events-embed-frame{top:-150px;height:calc(100% + 150px)}
+    /* Tablet-Band: Shop-Kopfhoehe reflowt unvorhersehbar -> kein Crop, volles Panel scrollbar (nie angeschnitten) */
+    @media (max-width:1023px){
+      .events-embed{height:720px}
+      .events-embed-frame{top:0;height:100%}
+    }
+    /* Phones: kompakter Shop-Kopf (~90px) -> knapp wegschneiden */
+    @media (max-width:430px){
+      .events-embed{height:600px}
+      .events-embed-frame{top:-88px;height:calc(100% + 88px)}
     }
   </style>
 </head>
