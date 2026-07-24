@@ -15,28 +15,31 @@
   <meta property="og:description" content="Events, Weinproben, Open Air und Konzerte in Gladbeck. Alle Termine bei EntdeckerWeine.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Live-Panel der Shop-Veranstaltungen (Events-Seite) – INTERN SCROLLBAR; Buchungs-Button schwebt fixiert darueber */
+    /* Live-Panel der Shop-Veranstaltungen (Events-Seite) – REINE ANZEIGE, keine Buchung im Panel; scrollbar; jeder Klick -> Shop im neuen Tab */
     .events-embed{position:relative;max-width:1000px;margin:0 auto;height:820px;overflow:hidden;border-radius:8px;border:1px solid var(--border-subtle);box-shadow:0 24px 60px rgba(0,0,0,.4);background:#fff}
-    /* iframe ist fix 1000px breit -> Shop-Kopf (~158px) wegschneiden; scrollt INTERN (alle Termine sichtbar) */
-    .events-embed-frame{position:absolute;top:-158px;left:0;width:100%;height:calc(100% + 158px);border:0;display:block}
-    /* sanfter Verlauf am unteren Rand (parallax-artig, ueber dem scrollenden iframe) — laesst Klicks/Scroll durch */
+    /* Scroll-Container (parent-gesteuert, damit die Klick-Ebene das Scrollen weiterreichen kann) */
+    .events-embed-scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+    /* iframe: Shop-Kopf (~158px) weggeschnitten; NICHT interaktiv -> im Panel kann NICHT gebucht werden */
+    .events-embed-frame{display:block;width:100%;height:4200px;border:0;margin-top:-158px;pointer-events:none}
+    /* sanfter Verlauf am unteren Rand (parallax-artig) */
     .events-embed-fade{position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.97));pointer-events:none;z-index:2}
-    /* schwebender Buchungs-Button: bleibt beim Scrollen unten fixiert -> oeffnet Shop im neuen Tab */
-    .events-embed-cta-float{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:3;padding:.72rem 1.5rem;border-radius:999px;background:var(--crimson,#7a1420);color:#fff;font-family:var(--font-body);font-size:.85rem;font-weight:600;letter-spacing:.02em;text-decoration:none;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.32);transition:transform .2s ease,box-shadow .2s ease}
-    .events-embed-cta-float:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.4)}
+    /* Klick-Ebene ueber dem GANZEN Panel -> jeder Klick (Event / "Ticket buchen") oeffnet den Shop im neuen Tab. Scrollen wird per JS an .events-embed-scroll weitergereicht. */
+    .events-embed-link{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-end;justify-content:center;text-decoration:none;cursor:pointer}
+    .events-embed-cta{position:relative;margin-bottom:20px;padding:.72rem 1.5rem;border-radius:999px;background:var(--crimson,#7a1420);color:#fff;font-family:var(--font-body);font-size:.85rem;font-weight:600;letter-spacing:.02em;box-shadow:0 10px 26px rgba(0,0,0,.32);transition:transform .2s ease,box-shadow .2s ease}
+    .events-embed-link:hover .events-embed-cta{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.4)}
     .events-embed-hint{margin-top:1rem;font-size:.8rem;color:var(--text-muted)}
-    /* Tablet-Band: Shop-Kopfhoehe reflowt unvorhersehbar -> kein Crop (nichts angeschnitten) */
+    /* Tablet: kein Crop; iframe generoes hoch (Shop-Inhalt reflowt hoeher) */
     @media (max-width:1023px){
       .events-embed{height:680px}
-      .events-embed-frame{top:0;height:100%}
+      .events-embed-frame{margin-top:0;height:4800px}
     }
-    /* Phones: kompakter Shop-Kopf (~90px) -> knapp wegschneiden */
+    /* Phones: kompakter Shop-Kopf (~88px) weg; iframe noch hoeher (einspaltig) */
     @media (max-width:430px){
       .events-embed{height:540px}
-      .events-embed-frame{top:-88px;height:calc(100% + 88px)}
-      .events-embed-cta-float{font-size:.8rem;padding:.62rem 1.1rem;white-space:normal;text-align:center;max-width:88%;line-height:1.3}
+      .events-embed-frame{margin-top:-88px;height:5400px}
+      .events-embed-cta{font-size:.8rem;padding:.62rem 1.1rem;white-space:normal;text-align:center;max-width:88%;line-height:1.3}
     }
-    @media (prefers-reduced-motion:reduce){ .events-embed-cta-float{transition:none} .events-embed-cta-float:hover{transform:translateX(-50%)} }
+    @media (prefers-reduced-motion:reduce){ .events-embed-cta{transition:none} .events-embed-link:hover .events-embed-cta{transform:none} }
   </style>
 </head>
 <body>
@@ -167,14 +170,19 @@
     </div>
 
     <div class="events-embed reveal">
-      <iframe class="events-embed-frame"
-              src="https://shop.entdeckerweine.de/veranstaltungen/"
-              title="Aktuelle Veranstaltungen bei EntdeckerWeine Gladbeck – im Panel scrollbar"></iframe>
+      <div class="events-embed-scroll">
+        <iframe class="events-embed-frame"
+                src="https://shop.entdeckerweine.de/veranstaltungen/"
+                title="Aktuelle Veranstaltungen bei EntdeckerWeine Gladbeck"
+                loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+      </div>
       <div class="events-embed-fade" aria-hidden="true"></div>
-      <a class="events-embed-cta-float"
+      <a class="events-embed-link"
          href="https://shop.entdeckerweine.de/veranstaltungen/"
          target="_blank" rel="noopener"
-         aria-label="Alle Veranstaltungen ansehen und Tickets im Shop buchen (oeffnet einen neuen Tab)">Alle Termine ansehen &amp; Tickets buchen &#8599;</a>
+         aria-label="Alle Veranstaltungen ansehen und Tickets im Shop buchen (oeffnet einen neuen Tab)">
+        <span class="events-embed-cta">Alle Termine ansehen &amp; Tickets buchen &#8599;</span>
+      </a>
     </div>
 
     <div class="text-center" style="margin-top:2rem;">
@@ -349,6 +357,17 @@
     if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('in-view'); }
     else { observer.observe(el); }
   });
+  /* Events-Panel: Klick-Ebene faengt ALLE Klicks (-> Shop im neuen Tab), leitet aber Wheel/Touch-Scrollen an den Panel-Scroll weiter */
+  (function(){
+    const link = document.querySelector('.events-embed-link');
+    const sc = document.querySelector('.events-embed-scroll');
+    if (!link || !sc) return;
+    link.addEventListener('wheel', function(e){ e.preventDefault(); sc.scrollTop += e.deltaY; }, { passive:false });
+    let ty = 0, moved = 0;
+    link.addEventListener('touchstart', function(e){ ty = e.touches[0].clientY; moved = 0; }, { passive:true });
+    link.addEventListener('touchmove', function(e){ const y = e.touches[0].clientY, d = ty - y; sc.scrollTop += d; moved += Math.abs(d); ty = y; if (moved > 6) e.preventDefault(); }, { passive:false });
+    link.addEventListener('click', function(e){ if (moved > 10) e.preventDefault(); });
+  })();
 </script>
 </body>
 </html>
