@@ -15,21 +15,28 @@
   <meta property="og:description" content="Events, Weinproben, Open Air und Konzerte in Gladbeck. Alle Termine bei EntdeckerWeine.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Live-Embed der Shop-Veranstaltungen (Events-Seite) */
-    .events-embed{position:relative;max-width:1000px;margin:0 auto;height:900px;overflow:hidden;border-radius:8px;border:1px solid var(--border-subtle);box-shadow:0 24px 60px rgba(0,0,0,.4);background:#fff}
-    /* Desktop: iframe ist fix 1000px breit -> Shop-Kopf (Topbar+Nav, ~158px) sauber wegschneiden */
-    .events-embed-frame{position:absolute;top:-158px;left:0;width:100%;height:calc(100% + 158px);border:0;display:block}
+    /* Live-Vorschau der Shop-Veranstaltungen (Events-Seite) – klickbar -> Shop im neuen Tab */
+    .events-embed{position:relative;max-width:1000px;margin:0 auto;height:820px;overflow:hidden;border-radius:8px;border:1px solid var(--border-subtle);box-shadow:0 24px 60px rgba(0,0,0,.4);background:#fff}
+    /* Desktop: iframe ist fix 1000px breit -> Shop-Kopf (Topbar+Nav, ~158px) sauber wegschneiden; iframe faengt keine Klicks (Klick-Ebene liegt darueber) */
+    .events-embed-frame{position:absolute;top:-158px;left:0;width:100%;height:calc(100% + 158px);border:0;display:block;pointer-events:none}
+    /* Transparente Klick-Ebene ueber dem gesamten Panel -> oeffnet den Shop im neuen Tab */
+    .events-embed-link{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;text-decoration:none;cursor:pointer}
+    /* sanfter Verlauf am unteren Rand: signalisiert "weitere Termine im Shop" */
+    .events-embed-link::before{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.94));pointer-events:none}
+    .events-embed-cta{position:relative;margin-bottom:20px;padding:.72rem 1.5rem;border-radius:999px;background:var(--crimson,#7a1420);color:#fff;font-family:var(--font-body);font-size:.85rem;font-weight:600;letter-spacing:.02em;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .2s ease,box-shadow .2s ease}
+    .events-embed-link:hover .events-embed-cta{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.34)}
     .events-embed-hint{margin-top:1rem;font-size:.8rem;color:var(--text-muted)}
-    /* Tablet-Band: Shop-Kopfhoehe reflowt unvorhersehbar -> kein Crop, volles Panel scrollbar (nie angeschnitten) */
+    /* Tablet-Band: Shop-Kopfhoehe reflowt unvorhersehbar -> kein Crop (nichts angeschnitten) */
     @media (max-width:1023px){
-      .events-embed{height:720px}
+      .events-embed{height:680px}
       .events-embed-frame{top:0;height:100%}
     }
     /* Phones: kompakter Shop-Kopf (~90px) -> knapp wegschneiden */
     @media (max-width:430px){
-      .events-embed{height:600px}
+      .events-embed{height:540px}
       .events-embed-frame{top:-88px;height:calc(100% + 88px)}
     }
+    @media (prefers-reduced-motion:reduce){ .events-embed-link:hover .events-embed-cta{transform:none} }
   </style>
 </head>
 <body>
@@ -161,7 +168,13 @@
       <iframe class="events-embed-frame"
               src="https://shop.entdeckerweine.de/veranstaltungen/"
               title="Aktuelle Veranstaltungen bei EntdeckerWeine Gladbeck"
-              loading="lazy"></iframe>
+              loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+      <a class="events-embed-link"
+         href="https://shop.entdeckerweine.de/veranstaltungen/"
+         target="_blank" rel="noopener"
+         aria-label="Alle Veranstaltungen ansehen und Tickets im Shop buchen (oeffnet einen neuen Tab)">
+        <span class="events-embed-cta">Alle Termine ansehen &amp; Tickets buchen &#8599;</span>
+      </a>
     </div>
 
     <div class="text-center" style="margin-top:2rem;">
