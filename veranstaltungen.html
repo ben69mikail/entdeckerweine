@@ -14,6 +14,16 @@
   <meta property="og:title" content="Veranstaltungen bei EntdeckerWeine Gladbeck – Events, Open Air & mehr">
   <meta property="og:description" content="Events, Weinproben, Open Air und Konzerte in Gladbeck. Alle Termine bei EntdeckerWeine.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Live-Embed der Shop-Veranstaltungen (Events-Seite) */
+    .events-embed{position:relative;max-width:1000px;margin:0 auto;height:900px;overflow:hidden;border-radius:8px;border:1px solid var(--border-subtle);box-shadow:0 24px 60px rgba(0,0,0,.4);background:#fff}
+    .events-embed-frame{position:absolute;top:-158px;left:0;width:100%;height:calc(100% + 158px);border:0;display:block}
+    .events-embed-hint{margin-top:1rem;font-size:.8rem;color:var(--text-muted)}
+    @media (max-width:768px){
+      .events-embed{height:640px}
+      .events-embed-frame{top:-150px;height:calc(100% + 150px)}
+    }
+  </style>
 </head>
 <body>
 
@@ -130,177 +140,26 @@
   </div>
 </section>
 
-<!-- EVENT KATEGORIE FILTER -->
-<section class="section-dark" style="padding:3rem 2rem;">
+<!-- AKTUELLE VERANSTALTUNGEN – LIVE AUS DEM SHOP -->
+<section id="events" class="section-dark" style="padding:3.5rem 2rem;">
   <div class="section-inner">
-    <div class="text-center" style="margin-bottom:1rem;">
-      <span class="section-eyebrow">Alle Veranstaltungen 2024</span>
-    </div>
-    <div class="category-pills" style="justify-content:center;" id="filterPills">
-      <button class="pill active" data-filter="all" onclick="filterEvents('all', this)">Alle</button>
-      <button class="pill" data-filter="weinprobe" onclick="filterEvents('weinprobe', this)">🍷 Weinproben</button>
-      <button class="pill" data-filter="openair" onclick="filterEvents('openair', this)">🌿 Open Air</button>
-      <button class="pill" data-filter="konzert" onclick="filterEvents('konzert', this)">🎶 Konzerte</button>
-      <button class="pill" data-filter="lesung" onclick="filterEvents('lesung', this)">📖 Lesungen</button>
-      <button class="pill" data-filter="special" onclick="filterEvents('special', this)">⭐ Specials</button>
-    </div>
-  </div>
-</section>
-
-<!-- EVENT LIST -->
-<section id="events">
-  <div class="section-inner">
-
-    <div class="events-list" id="eventList">
-
-      <div class="event-item reveal" data-cat="weinprobe">
-        <div class="event-date">
-          <span class="event-date-day">14</span>
-          <span class="event-date-month">Jun</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🍷 Weinprobe</div>
-          <div class="event-info-title">Große Rotwein-Verkostung – Bordeaux trifft Burgund</div>
-          <div class="event-info-detail">Donnerstag, 14. Juni · Ab 19:00 Uhr · EntdeckerWeine, Marktstraße 6 · <strong style="color:var(--gold)">25 €/Person</strong> · Anmeldung erforderlich</div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-1" data-cat="openair">
-        <div class="event-date">
-          <span class="event-date-day">21</span>
-          <span class="event-date-month">Jun</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🌿 Open Air</div>
-          <div class="event-info-title">Sommerliche Open Air Weinbar – Wein unter dem Sternenhimmel</div>
-          <div class="event-info-detail">Freitag, 21. Juni · Ab 17:00 Uhr · Vor dem Laden, Marktstraße 6 · <strong style="color:var(--gold)">Eintritt frei</strong> · Kein Vorverkauf</div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-2" data-cat="lesung">
-        <div class="event-date">
-          <span class="event-date-day">05</span>
-          <span class="event-date-month">Jul</span>
-        </div>
-        <div>
-          <div class="event-info-tag">📖 Lesung</div>
-          <div class="event-info-title">Literatur & Wein – Ein Abend mit Worten und Gläsern</div>
-          <div class="event-info-detail">Freitag, 5. Juli · Ab 19:30 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">20 €/Person</strong> inkl. 1 Glas Wein</div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal" data-cat="konzert">
-        <div class="event-date">
-          <span class="event-date-day">19</span>
-          <span class="event-date-month">Jul</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🎶 Konzert</div>
-          <div class="event-info-title">Jazz & Wein – Sommerkonzert im Innenhof</div>
-          <div class="event-info-detail">Freitag, 19. Juli · Ab 19:00 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">15 €/Person</strong> inkl. Sektempfang</div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-1" data-cat="weinprobe">
-        <div class="event-date">
-          <span class="event-date-day">01</span>
-          <span class="event-date-month">Aug</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🥂 Weinprobe</div>
-          <div class="event-info-title">Champagner & Crémant – Sommerprickelnd</div>
-          <div class="event-info-detail">Donnerstag, 1. August · Ab 19:00 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">35 €/Person</strong></div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-2" data-cat="openair">
-        <div class="event-date">
-          <span class="event-date-day">16</span>
-          <span class="event-date-month">Aug</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🌿 Open Air</div>
-          <div class="event-info-title">Genuss-Freitag – Wein & Livemusik auf der Terrasse</div>
-          <div class="event-info-detail">Freitag, 16. August · Ab 18:00 Uhr · Terrassenbereich · <strong style="color:var(--gold)">Eintritt frei</strong></div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
-      </div>
-
-      <div class="event-item reveal" data-cat="special">
-        <div class="event-date">
-          <span class="event-date-day">07</span>
-          <span class="event-date-month">Sep</span>
-        </div>
-        <div>
-          <div class="event-info-tag">⭐ Highlight</div>
-          <div class="event-info-title">Großes Herbstfest – Wein, Essen, Musik & mehr</div>
-          <div class="event-info-detail">Samstag, 7. September · 14:00 – 22:00 Uhr · EntdeckerWeine & Umgebung · <strong style="color:var(--gold)">10 €</strong> Eintritt inkl. Glas</div>
-        </div>
-        <a href="kontakt.html" class="btn btn-gold" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Tickets</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-1" data-cat="lesung">
-        <div class="event-date">
-          <span class="event-date-day">04</span>
-          <span class="event-date-month">Okt</span>
-        </div>
-        <div>
-          <div class="event-info-tag">📖 Lesung</div>
-          <div class="event-info-title">Krimi & Wein – Der perfekte Herbstabend</div>
-          <div class="event-info-detail">Freitag, 4. Oktober · Ab 19:30 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">18 €/Person</strong> inkl. 1 Glas Wein</div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-2" data-cat="weinprobe">
-        <div class="event-date">
-          <span class="event-date-day">17</span>
-          <span class="event-date-month">Okt</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🥃 Whisky Tasting</div>
-          <div class="event-info-title">Whisky-Verkostung: Schottland, Irland, Japan</div>
-          <div class="event-info-detail">Donnerstag, 17. Oktober · Ab 19:00 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">40 €/Person</strong></div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal" data-cat="konzert">
-        <div class="event-date">
-          <span class="event-date-day">08</span>
-          <span class="event-date-month">Nov</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🎶 Konzert</div>
-          <div class="event-info-title">Acoustic Night – Stimmungsvoller Abend mit Rotwein</div>
-          <div class="event-info-detail">Freitag, 8. November · Ab 19:30 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">15 €/Person</strong></div>
-        </div>
-        <a href="kontakt.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-1" data-cat="special">
-        <div class="event-date">
-          <span class="event-date-day">07</span>
-          <span class="event-date-month">Dez</span>
-        </div>
-        <div>
-          <div class="event-info-tag">🎄 Weihnachtlich</div>
-          <div class="event-info-title">Weihnachtliche Weinprobe – Die schönsten Weine zur Adventszeit</div>
-          <div class="event-info-detail">Samstag, 7. Dezember · Ab 17:00 Uhr · EntdeckerWeine, Gladbeck · <strong style="color:var(--gold)">30 €/Person</strong></div>
-        </div>
-        <a href="kontakt.html" class="btn btn-gold" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Platz sichern</a>
-      </div>
-
+    <div class="text-center reveal" style="margin-bottom:2rem;">
+      <span class="section-eyebrow">Immer aktuell</span>
+      <h2 class="section-title">Kommende <em>Termine</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead" style="margin:0 auto;">Alle aktuellen Veranstaltungen samt Tickets &ndash; live aus unserem Ticket-Shop. W&auml;hlen Sie einen Termin und buchen Sie direkt online.</p>
     </div>
 
-    <div style="text-align:center; margin-top:3rem; padding:2rem; background:var(--dark-surface); border:1px solid var(--border-subtle); border-radius:4px;" id="noEvents" style="display:none;">
-      <p style="color:var(--text-muted); font-size:0.9rem;">Keine Events in dieser Kategorie geplant. Alle Termine anzeigen?</p>
-      <button class="btn btn-outline" style="margin-top:1rem;" onclick="filterEvents('all', document.querySelector('[data-filter=all]'))">Alle Events anzeigen</button>
+    <div class="events-embed reveal">
+      <iframe class="events-embed-frame"
+              src="https://shop.entdeckerweine.de/veranstaltungen/"
+              title="Aktuelle Veranstaltungen bei EntdeckerWeine Gladbeck"
+              loading="lazy"></iframe>
+    </div>
+
+    <div class="text-center" style="margin-top:2rem;">
+      <a href="https://shop.entdeckerweine.de/veranstaltungen/" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Alle Termine &amp; Tickets im Shop &ouml;ffnen &#8599;</a>
+      <p class="events-embed-hint">Wird die Termin&uuml;bersicht nicht angezeigt? <a href="https://shop.entdeckerweine.de/veranstaltungen/" target="_blank" rel="noopener" style="color:var(--gold-light);text-decoration:underline;">Hier direkt im Shop ansehen.</a></p>
     </div>
   </div>
 </section>
@@ -460,22 +319,6 @@
   const nav = document.getElementById('siteNav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-  function filterEvents(cat, btn) {
-    document.querySelectorAll('#filterPills .pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    const items = document.querySelectorAll('#eventList .event-item');
-    let visible = 0;
-    items.forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
-        item.style.display = '';
-        visible++;
-      } else {
-        item.style.display = 'none';
-      }
-    });
-    const noEventsEl = document.getElementById('noEvents');
-    if (noEventsEl) noEventsEl.style.display = visible === 0 ? 'block' : 'none';
-  }
 
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
