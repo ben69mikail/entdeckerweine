@@ -93,6 +93,18 @@ Zusätzlich von Hand im Browser ansehen:
 | ✅ | `datenschutz.html` in die Sitemap aufgenommen |
 | ✅ | 53 interne Verlinkungen und Bilder einzeln aufgerufen — alle erreichbar |
 
+## Hinweis für spätere Uploads
+
+Beim Hochladen per `tar`/FTP setzen sich die Dateirechte auf `604` — der Webserver
+verweigert dann den Zugriff (403). Nach jedem Upload einmal ausführen:
+
+```bash
+find . -type f -exec chmod 644 {} \; && find . -type d -exec chmod 755 {} \;
+```
+
+Nicht auf den Webserver gehören: `GO-LIVE-CHECKLISTE.md`, `verify-homepage.sh`, `.git/`
+(liegen bewusst nur im Projektordner und auf GitHub).
+
 ## Offene Punkte (kein Hindernis für den Start)
 
 - **Weinprobe-Seite:** Der Button „Jetzt Platz sichern" führt zum Kontaktformular, nicht in den
