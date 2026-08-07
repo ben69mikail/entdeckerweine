@@ -1,0 +1,105 @@
+# ============================================================
+# Entdeckerweine — www.entdeckerweine.de
+# Statische Homepage · IONOS · Stand 2026-08-06
+# ============================================================
+
+# --- 0. MultiViews abschalten -------------------------------
+# Sonst loest Apache /impressum selbst zu impressum.html auf und die
+# Weiterleitungen der alten WordPress-Adressen (/impressum/) laufen ins Leere.
+Options -MultiViews
+
+# --- 1. HTTPS + www erzwingen (eine kanonische Adresse) ------
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Test-Subdomain (neu.entdeckerweine.de) von der Kanonisierung ausnehmen,
+# damit die Seite dort vor dem Go-Live 1:1 geprueft werden kann.
+RewriteCond %{HTTP_HOST} ^neu\. [NC]
+RewriteRule ^ - [E=IST_TESTUMGEBUNG:1]
+
+# HTTPS erzwingen
+RewriteCond %{HTTP_HOST} !^neu\. [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://www.entdeckerweine.de%{REQUEST_URI} [R=301,L]
+
+# Ohne www -> mit www
+RewriteCond %{HTTP_HOST} !^neu\. [NC]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.entdeckerweine.de%{REQUEST_URI} [R=301,L]
+
+# --- 2. Alte WordPress-URLs -> neue Seiten (SEO) -------------
+# Inhaltsseiten
+RewriteRule ^impressum/?$            /impressum.html        [R=301,L]
+RewriteRule ^datenschutz/?$          /datenschutz.html      [R=301,L]
+RewriteRule ^kontakt/?$              /kontakt.html          [R=301,L]
+RewriteRule ^unser-team/?$           /ueber-uns.html        [R=301,L]
+RewriteRule ^ladenlokal/?$           /weinbar.html          [R=301,L]
+RewriteRule ^produkte/?$             /wein-kaufen.html      [R=301,L]
+RewriteRule ^aktuelles/?$            /veranstaltungen.html  [R=301,L]
+RewriteRule ^veranstaltungen/?$      /veranstaltungen.html  [R=301,L]
+RewriteRule ^events-ditix/?$         /veranstaltungen.html  [R=301,L]
+
+# Verkaufs-URLs -> Shop-Subdomain
+RewriteRule ^geschenkgutscheine/?$   https://shop.entdeckerweine.de/geschenkgutscheine/ [R=301,L]
+RewriteRule ^brot-bestellen/?$       https://shop.entdeckerweine.de/brot-bestellen/     [R=301,L]
+RewriteRule ^warenkorb/?$            https://shop.entdeckerweine.de/warenkorb/          [R=301,L]
+RewriteRule ^kasse/?$                https://shop.entdeckerweine.de/kasse/              [R=301,L]
+RewriteRule ^mein-konto(/.*)?$       https://shop.entdeckerweine.de/mein-konto/         [R=301,L]
+RewriteRule ^produkt/(.*)$           https://shop.entdeckerweine.de/produkt/$1          [R=301,L]
+RewriteRule ^produkt-kategorie/(.*)$ https://shop.entdeckerweine.de/produkt-kategorie/$1 [R=301,L]
+RewriteRule ^shop/?$                 https://shop.entdeckerweine.de/                    [R=301,L]
+
+# Gutschein-/Test-Seiten des alten Plugins
+RewriteRule ^gift-voucher/?$              https://shop.entdeckerweine.de/geschenkgutscheine/ [R=301,L]
+RewriteRule ^voucher-pdf-preview/?$       https://shop.entdeckerweine.de/geschenkgutscheine/ [R=301,L]
+RewriteRule ^gift-item-pdf-preview/?$     https://shop.entdeckerweine.de/geschenkgutscheine/ [R=301,L]
+RewriteRule ^voucher-payment-successful/?$ https://shop.entdeckerweine.de/geschenkgutscheine/ [R=301,L]
+RewriteRule ^voucher-payment-cancel/?$    https://shop.entdeckerweine.de/geschenkgutscheine/ [R=301,L]
+RewriteRule ^test_gift_event/?$           https://shop.entdeckerweine.de/                    [R=301,L]
+
+# Alte WordPress-Sitemaps -> neue Sitemap
+RewriteRule ^sitemap_index\.xml$     /sitemap.xml [R=301,L]
+RewriteRule ^(page|post|product)-sitemap\.xml$ /sitemap.xml [R=301,L]
+
+# WordPress-Reste ins Leere laufen lassen (kein Loop, sauberer 410)
+RewriteRule ^wp-(admin|login|content|includes|json)(/.*)?$ - [R=410,L]
+</IfModule>
+
+# --- 3. Fehlerseite -----------------------------------------
+ErrorDocument 404 /404.html
+
+# --- 4. Komprimierung ---------------------------------------
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- 5. Browser-Caching -------------------------------------
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html                 "access plus 1 hour"
+ExpiresByType text/css                  "access plus 1 year"
+ExpiresByType application/javascript    "access plus 1 year"
+ExpiresByType image/jpeg                "access plus 1 year"
+ExpiresByType image/png                 "access plus 1 year"
+ExpiresByType image/webp                "access plus 1 year"
+ExpiresByType image/svg+xml             "access plus 1 year"
+ExpiresByType video/mp4                 "access plus 1 year"
+ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+# --- 6. Sicherheits-Header ----------------------------------
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+# Test-Subdomain nie in Suchmaschinen aufnehmen (verhindert doppelten Inhalt)
+Header always set X-Robots-Tag "noindex, nofollow" env=IST_TESTUMGEBUNG
+<FilesMatch "\.(woff2?|jpg|jpeg|png|webp|svg|mp4|css)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+</IfModule>
+
+# --- 7. Zeichensatz (Umlaute in Dateinamen/Inhalten) ---------
+AddDefaultCharset UTF-8
