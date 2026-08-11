@@ -2423,6 +2423,20 @@ footer {
   border-radius: 3px;
 }
 
+/* Absatzabstand im Textblock — der globale Reset (*{margin:0}) laesst
+   mehrere <p> sonst zu einem Textblock verschmelzen. */
+.col-text p + p {
+  margin-top: 1.1rem;
+}
+
+/* CTA-Baender: Fliesstext auf lesbare Zeilenlaenge begrenzen, statt ueber
+   die volle Viewport-Breite zu laufen. */
+.cta-inner p {
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* section-header / section-intro (rotwein.html) */
 .section-header {
   margin-bottom: 1.5rem;
