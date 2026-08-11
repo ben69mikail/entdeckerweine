@@ -1441,6 +1441,27 @@ footer {
   color: var(--gold);
 }
 
+/* Sprungziele nicht unter die feste Kopfzeile scrollen lassen */
+.card[id],
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+/* Auf hellen Kartenflaechen brauchen die Badges dunkle Schrift — die
+   Varianten oben sind fuer dunkle Hintergruende gedacht und kamen auf
+   Weiss nur auf 1,7:1 bzw. 2,4:1 Kontrast. */
+.card-body .tag {
+  background: rgba(139, 26, 42, 0.08);
+  border-color: rgba(139, 26, 42, 0.35);
+  color: var(--crimson-dark);
+}
+
+.card-body .tag-gold {
+  background: rgba(196, 150, 60, 0.12);
+  border-color: rgba(196, 150, 60, 0.5);
+  color: #7A5A14;
+}
+
 /* ===== PAGE HEADER (inner pages) ===== */
 .page-header {
   background: var(--dark-bg);
