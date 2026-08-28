@@ -596,44 +596,20 @@
       <a href="veranstaltungen.html" class="btn btn-outline reveal" style="white-space:nowrap;">Alle Veranstaltungen</a>
     </div>
 
-    <div class="events-list">
-      <div class="event-item reveal">
-        <div class="event-date">
-          <span class="event-date-day">14</span>
-          <span class="event-date-month">Jun</span>
-        </div>
+    <div class="events-list"
+         id="upcomingEvents"
+         data-ew-events
+         data-ew-events-endpoint="events.php"
+         data-ew-events-limit="3"
+         aria-live="polite">
+      <!-- Wird bei jedem Seitenaufruf durch die drei naechsten Termine aus dem Shop ersetzt: assets/js/upcoming-events.js -->
+      <div class="event-item ew-event-item ew-event-empty">
         <div>
-          <div class="event-info-tag">Weinprobe</div>
-          <div class="event-info-title">Große Rotwein-Verkostung – Bordeaux trifft Burgund</div>
-          <div class="event-info-detail">Ab 19:00 Uhr · EntdeckerWeine, Gladbeck · 25 €/Person</div>
+          <div class="event-info-tag">Termine</div>
+          <div class="event-info-title">Die nächsten Termine stehen im Veranstaltungskalender</div>
+          <div class="event-info-detail">Weinproben, Tastings, Lesungen und Konzerte in Gladbeck — alle aktuellen Termine auf einen Blick.</div>
         </div>
-        <a href="veranstaltungen.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-1">
-        <div class="event-date">
-          <span class="event-date-day">21</span>
-          <span class="event-date-month">Jun</span>
-        </div>
-        <div>
-          <div class="event-info-tag">Open Air</div>
-          <div class="event-info-title">Sommerliche Open Air Weinbar – Wein unter dem Sternenhimmel</div>
-          <div class="event-info-detail">Ab 17:00 Uhr · Vor dem Laden, Marktstraße 6 · Eintritt frei</div>
-        </div>
-        <a href="veranstaltungen.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
-      </div>
-
-      <div class="event-item reveal reveal-delay-2">
-        <div class="event-date">
-          <span class="event-date-day">05</span>
-          <span class="event-date-month">Jul</span>
-        </div>
-        <div>
-          <div class="event-info-tag">Lesung & Wein</div>
-          <div class="event-info-title">Literatur & Wein – ein Abend mit Worten und Gläsern</div>
-          <div class="event-info-detail">Ab 19:30 Uhr · EntdeckerWeine, Gladbeck · 20 €/Person inkl. Glas Wein</div>
-        </div>
-        <a href="veranstaltungen.html" class="btn btn-crimson" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Details</a>
+        <a class="btn btn-crimson" href="veranstaltungen.html" style="font-size:0.75rem; padding:0.6rem 1.1rem; white-space:nowrap;">Zum Kalender</a>
       </div>
     </div>
   </div>
@@ -847,6 +823,7 @@
       }
     });
   </script>
+  <script src="assets/js/upcoming-events.js" defer></script>
   <script src="weine-data.js"></script>
   <script src="wine-showcase.js"></script>
 </body>
