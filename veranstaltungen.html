@@ -24,6 +24,13 @@
     /* Klick-Ebene ueber dem GANZEN Panel -> jeder Klick (Event / "Ticket buchen") oeffnet den Shop im neuen Tab. Scrollen wird per JS an .events-embed-scroll weitergereicht. */
     .events-embed-link{position:absolute;inset:0;z-index:3;display:block;cursor:pointer;text-decoration:none}
     .events-embed-hint{margin-top:1rem;font-size:.8rem;color:var(--text-muted)}
+    /* CTA unter dem Panel: .btn ist global white-space:nowrap, das Label ist lang (479px intrinsisch)
+       -> unter ~543px Viewport lief der Button ueber den Bildschirmrand hinaus.
+       Schmal: auf Panelbreite begrenzen und den Text umbrechen lassen. */
+    .events-embed-cta{max-width:100%}
+    @media (max-width:600px){
+      .events-embed-cta{display:flex;width:100%;justify-content:center;white-space:normal;text-align:center;text-wrap:balance;line-height:1.4;letter-spacing:.06em;font-size:.8rem;padding:.95rem 1.1rem}
+    }
     /* Schmale Ansicht (<=832px): Shop schaltet auf gestapeltes Layout um (~2,6x hoeher) -> Kopf ~90px weg, Hoehe grosszuegig fuer alle Mobil-Events */
     @media (max-width:832px){
       .events-embed{height:560px}
@@ -172,7 +179,7 @@
     </div>
 
     <div class="text-center" style="margin-top:2rem;">
-      <a href="https://shop.entdeckerweine.de/veranstaltungen/" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Alle Termine &amp; Tickets im Shop &ouml;ffnen &#8599;</a>
+      <a href="https://shop.entdeckerweine.de/veranstaltungen/" target="_blank" rel="noopener" class="btn btn-gold btn-lg events-embed-cta">Alle Termine &amp; Tickets im Shop &ouml;ffnen&nbsp;&#8599;</a>
       <p class="events-embed-hint">Wird die Termin&uuml;bersicht nicht angezeigt? <a href="https://shop.entdeckerweine.de/veranstaltungen/" target="_blank" rel="noopener" style="color:var(--gold-light);text-decoration:underline;">Hier direkt im Shop ansehen.</a></p>
     </div>
   </div>
