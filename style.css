@@ -3144,3 +3144,15 @@ section[id] {
 /* ================================================================
    LAYOUT SYMMETRY & VISUAL POLISH — END OF FILE
    ================================================================ */
+
+/* ===== KOMMENDE EVENTS — dynamisch geladenes Modul (assets/js/upcoming-events.js) ===== */
+/* Grundzustand ist sichtbar: faellt die Animation aus, bleibt die Karte trotzdem lesbar. */
+.ew-event-item { opacity: 1; animation: ewEventIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ew-event-empty { grid-template-columns: 1fr auto; }
+@keyframes ewEventIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ew-event-item { animation: none; }
+}
