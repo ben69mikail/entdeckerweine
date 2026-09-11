@@ -1,12 +1,19 @@
 # ============================================================
 # Entdeckerweine — www.entdeckerweine.de
-# Statische Homepage · IONOS · Stand 2026-08-06
+# Statische Homepage · IONOS · Stand 2026-09-04 (Sicherheits-Update)
 # ============================================================
 
 # --- 0. MultiViews abschalten -------------------------------
 # Sonst loest Apache /impressum selbst zu impressum.html auf und die
 # Weiterleitungen der alten WordPress-Adressen (/impressum/) laufen ins Leere.
 Options -MultiViews
+
+# IONOS hat zusaetzlich mod_speling aktiv: /index oder /.env werden dann mit
+# "300 Multiple Choices" und einer Liste aehnlicher Dateinamen beantwortet
+# (Stand 11.09.2026 live beobachtet). Das verraet, welche Dateien existieren.
+<IfModule mod_speling.c>
+CheckSpelling Off
+</IfModule>
 
 # --- 1. HTTPS + www erzwingen (eine kanonische Adresse) ------
 <IfModule mod_rewrite.c>
@@ -64,6 +71,16 @@ RewriteRule ^(page|post|product)-sitemap\.xml$ /sitemap.xml [R=301,L]
 
 # WordPress-Reste ins Leere laufen lassen (kein Loop, sauberer 410)
 RewriteRule ^wp-(admin|login|content|includes|json)(/.*)?$ - [R=410,L]
+
+# --- 2b. Punkt-Dateien sperren -------------------------------
+# Verhindert, dass .env, .git/, .DS_Store & Co. ueber die Inhaltsaushandlung
+# (MultiViews) als "300 Multiple Choices" beantwortet und damit als vorhanden
+# verraten werden. /.well-known/ bleibt erreichbar (Zertifikate, security.txt).
+RewriteRule "(^|/)\.(?!well-known/)" - [F,L]
+
+# --- 2c. Interne PHP-Bibliothek nicht direkt aufrufbar --------
+# ew-events-lib.php wird von events.php eingebunden und hat keinen eigenen Zweck.
+RewriteRule ^ew-events-lib\.php$ - [F,L]
 </IfModule>
 
 # --- 3. Fehlerseite -----------------------------------------
@@ -94,6 +111,17 @@ Header always set X-Content-Type-Options "nosniff"
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+# HSTS: Browser merkt sich 1 Jahr lang, dass diese Domain nur ueber HTTPS
+# angesprochen wird. Erst aktivieren, wenn HTTPS auf allen Subdomains laeuft —
+# das ist hier der Fall (www + shop + neu).
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+# Content-Security-Policy: begrenzt, woher Inhalte geladen werden duerfen.
+# 'unsafe-inline' ist noetig, weil die Seiten Inline-<script> und style="..."
+# nutzen. Bilder kommen zusaetzlich vom Shop (Veranstaltungsbilder) und von der
+# Apex-Domain (altes Hintergrundbild im CSS).
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://shop.entdeckerweine.de https://entdeckerweine.de; font-src 'self' data:; connect-src 'self'; frame-src https://shop.entdeckerweine.de; frame-ancestors 'self'; form-action 'self' https://shop.entdeckerweine.de; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
 # Test-Subdomain nie in Suchmaschinen aufnehmen (verhindert doppelten Inhalt)
 Header always set X-Robots-Tag "noindex, nofollow" env=IST_TESTUMGEBUNG
 <FilesMatch "\.(woff2?|jpg|jpeg|png|webp|svg|mp4|css)$">

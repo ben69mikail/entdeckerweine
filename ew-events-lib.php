@@ -157,7 +157,12 @@ function ew_parse_events(string $html): array
         $image = null;
         if (preg_match('/<img[^>]*class="[^"]*\bewel-bild\b[^"]*"[^>]*src="([^"]+)"/us', $chunk, $i)
             || preg_match('/<img[^>]*src="([^"]+)"[^>]*class="[^"]*\bewel-bild\b[^"]*"/us', $chunk, $i)) {
-            $image = html_entity_decode($i[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $candidate = html_entity_decode($i[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            // Nur echte http(s)-Adressen ohne Anfuehrungs-/Steuerzeichen uebernehmen —
+            // gleiche Pruefung wie bei $url, damit kein data:/javascript: durchrutscht.
+            if (preg_match('#^https?://[^\s"\'<>]+$#i', $candidate)) {
+                $image = $candidate;
+            }
         }
 
         $key = $title . '|' . $start;

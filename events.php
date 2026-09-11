@@ -22,11 +22,33 @@ const EW_HTTP_TIMEOUT  = 8;     // Sekunden
 const EW_DEFAULT_LIMIT = 3;
 const EW_MAX_LIMIT     = 25;
 
-/** Pfad der Cache-Datei (Systemtemp, damit keine Schreibrechte im Webroot nötig sind). */
-function ew_cache_file(): string
+/**
+ * Pfad der Cache-Datei.
+ *
+ * Liegt in einem eigenen Unterverzeichnis mit installationsabhaengigem Namen und
+ * Rechten 0700. Auf Shared Hosting ist das Systemtemp-Verzeichnis von mehreren
+ * Kunden nutzbar; ein fester Dateiname waere dort fremdbeschreibbar (Cache-Poisoning)
+ * bzw. per Symlink umlenkbar. Beides ist damit ausgeschlossen.
+ */
+function ew_cache_file(): ?string
 {
-    $dir = getenv('EW_CACHE_DIR') ?: sys_get_temp_dir();
-    return rtrim($dir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'ew-events-cache.json';
+    $base = getenv('EW_CACHE_DIR') ?: sys_get_temp_dir();
+    $dir  = rtrim($base, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
+          . 'ew-cache-' . substr(hash('sha256', __DIR__), 0, 16);
+
+    if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
+        return null;                      // kein Cache moeglich -> es wird live geholt
+    }
+    if (is_link($dir) || !is_writable($dir)) {
+        return null;
+    }
+
+    $file = $dir . DIRECTORY_SEPARATOR . 'events.json';
+    if (is_link($file)) {                  // untergeschobener Symlink -> nicht benutzen
+        @unlink($file);
+        return null;
+    }
+    return $file;
 }
 
 /** Holt die Shop-Seite. EW_EVENTS_SOURCE (Datei oder URL) erlaubt Tests ohne Netz. */
@@ -72,7 +94,7 @@ function ew_load_events(bool &$fromCache): array
     $cacheFile = ew_cache_file();
     $cached = null;
 
-    if (is_readable($cacheFile)) {
+    if ($cacheFile !== null && is_readable($cacheFile)) {
         $raw = @file_get_contents($cacheFile);
         $decoded = is_string($raw) ? json_decode($raw, true) : null;
         if (is_array($decoded) && isset($decoded['events']) && is_array($decoded['events'])) {
@@ -89,11 +111,14 @@ function ew_load_events(bool &$fromCache): array
     if ($html !== null) {
         $events = ew_parse_events($html);
         if (count($events) > 0) {
-            @file_put_contents(
-                $cacheFile,
-                json_encode(['time' => time(), 'events' => $events], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
-                LOCK_EX
-            );
+            if ($cacheFile !== null) {
+                @file_put_contents(
+                    $cacheFile,
+                    json_encode(['time' => time(), 'events' => $events], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+                    LOCK_EX
+                );
+                @chmod($cacheFile, 0600);
+            }
             $fromCache = false;
             return $events;
         }
@@ -123,7 +148,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: public, max-age=300');
 header('X-Content-Type-Options: nosniff');
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-if (preg_match('#^https?://([a-z0-9-]+\.)*entdeckerweine\.de$#i', $origin)) {
+if (preg_match('#^https://([a-z0-9-]+\.)?entdeckerweine\.de$#i', $origin)) {
     header('Access-Control-Allow-Origin: ' . $origin);
     header('Vary: Origin');
 }
